@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- favicon -->
+    <link
+      rel="shortcut icon"
+      href="/assets/img/favicon.png"
+      type="image/x-icon"
+    />
+    <!-- title -->
+    <title>CSS Filters Tool</title>
+    <!-- meta -->
+    <meta name="author" content="Kane" />
+    <meta name="description" content="CSS Filters Tool" />
+    <meta name="keywords" content="html,css,js,chart,ilukane,kblog" />
+    <!-- css -->
+    <link rel="stylesheet" href="/assets/css/index.css" />
+    <link rel="stylesheet" href="/assets/css/kleft.css" />
+    <link rel="stylesheet" href="/assets/css/kcenter.css" />
+    <link rel="stylesheet" href="/assets/css/kright.css" />
+    <link rel="stylesheet" href="/other/1.css">
+    <script>
+      function headerIndex(index1, index2) {
+        return [3, 0];
+      }
+      document.addEventListener("DOMContentLoaded", function () {
+        loadContentFromJSON("/other/1.json");
+      });
+    </script>
+  </head>
+  <body>
+    <div class="kblog">
+      <div class="kleft">
+        <div class="kleft-container">
+          <div class="author">
+            <div class="author-avatar"></div>
+            <div class="author-name">Kindergarten boss</div>
+            <div class="author-desc">
+              <div class="author-desc-on">要么庸俗，要么孤独</div>
+              <div class="author-desc-off">ilukane.top</div>
+            </div>
+          </div>
+          <div class="nav">
+            <a href="/wiki/1.html">
+              <div class="nav-item" id="wiki">文章</div>
+            </a>
+            <a href="/note/1.html">
+              <div class="nav-item" id="note">笔记</div>
+            </a>
+            <a href="/space/1.html">
+              <div class="nav-item" id="space">空间</div>
+            </a>
+            <a href="/other/1.html">
+              <div class="nav-item" id="other">其他</div>
+            </a>
+          </div>
+          <div class="search">
+            <div class="search-box">
+              <div class="search-icon">
+                <img src="/assets/icon/searchIcon.svg" alt="" />
+              </div>
+              <input
+                id="searchInput"
+                type="text"
+                placeholder="搜索"
+                autocomplete="off"
+              />
+            </div>
+            <ul class="search-results" id="results"></ul>
+          </div>
+        </div>
+      </div>
+      <div class="kcenter">
+        <div class="kcenter-header" id="kheader"></div>
+        <div class="kcenter-main">
+          <h1>CSS Filters Tool</h1>
+          <label class="upload" for="upload">选择文件</label>
+          <input id="upload" type="file" accept="image/*" />
+          <div class="image">
+            <img id="image" src="/assets/img/tx.png" alt="" />
+          </div>
+          <div class="controls">
+            <div class="control">
+              <label for="blur">Blur</label>
+              <input
+                type="range"
+                id="blur"
+                min="0"
+                max="10"
+                step="0.1"
+                value="0"
+              />
+              <div class="values">
+                <span class="min">0</span>
+                <span class="current" id="blur-value">0</span>
+                <span class="max">10</span>
+              </div>
+            </div>
+            <div class="control">
+              <label for="brightness">Brightness</label>
+              <input
+                type="range"
+                id="brightness"
+                min="0"
+                max="2"
+                step="0.1"
+                value="1"
+              />
+              <div class="values">
+                <span class="min">0</span>
+                <span class="current" id="brightness-value">1</span>
+                <span class="max">2</span>
+              </div>
+            </div>
+            <div class="control">
+              <label for="contrast">Contrast</label>
+              <input
+                type="range"
+                id="contrast"
+                min="0"
+                max="2"
+                step="0.1"
+                value="1"
+              />
+              <div class="values">
+                <span class="min">0</span>
+                <span class="current" id="contrast-value">1</span>
+                <span class="max">2</span>
+              </div>
+            </div>
+            <div class="control">
+              <label for="grayscale">Grayscale</label>
+              <input
+                type="range"
+                id="grayscale"
+                min="0"
+                max="1"
+                step="0.1"
+                value="0"
+              />
+              <div class="values">
+                <span class="min">0</span>
+                <span class="current" id="grayscale-value">0</span>
+                <span class="max">1</span>
+              </div>
+            </div>
+            <div class="control">
+              <label for="hue-rotate">Hue Rotate</label>
+              <input
+                type="range"
+                id="hue-rotate"
+                min="0"
+                max="360"
+                step="1"
+                value="0"
+              />
+              <div class="values">
+                <span class="min">0</span>
+                <span class="current" id="hue-rotate-value">0</span>
+                <span class="max">360</span>
+              </div>
+            </div>
+            <div class="control">
+              <label for="invert">Invert</label>
+              <input
+                type="range"
+                id="invert"
+                min="0"
+                max="1"
+                step="0.1"
+                value="0"
+              />
+              <div class="values">
+                <span class="min">0</span>
+                <span class="current" id="invert-value">0</span>
+                <span class="max">1</span>
+              </div>
+            </div>
+            <div class="control">
+              <label for="opacity">Opacity</label>
+              <input
+                type="range"
+                id="opacity"
+                min="0"
+                max="1"
+                step="0.1"
+                value="1"
+              />
+              <div class="values">
+                <span class="min">0</span>
+                <span class="current" id="opacity-value">1</span>
+                <span class="max">1</span>
+              </div>
+            </div>
+            <div class="control">
+              <label for="saturate">Saturate</label>
+              <input
+                type="range"
+                id="saturate"
+                min="0"
+                max="2"
+                step="0.1"
+                value="1"
+              />
+              <div class="values">
+                <span class="min">0</span>
+                <span class="current" id="saturate-value">1</span>
+                <span class="max">2</span>
+              </div>
+            </div>
+            <div class="control">
+              <label for="sepia">Sepia</label>
+              <input
+                type="range"
+                id="sepia"
+                min="0"
+                max="1"
+                step="0.1"
+                value="0"
+              />
+              <div class="values">
+                <span class="min">0</span>
+                <span class="current" id="sepia-value">0</span>
+                <span class="max">1</span>
+              </div>
+            </div>
+            <div class="control">
+              <label for="drop-shadow">Drop Shadow</label>
+              <input
+                type="range"
+                id="drop-shadow"
+                min="0"
+                max="20"
+                step="1"
+                value="0"
+              />
+              <div class="values">
+                <span class="min">0</span>
+                <span class="current" id="drop-shadow-value">0</span>
+                <span class="max">20</span>
+              </div>
+            </div>
+            <div class="control">
+              <label for="drop-shadowX">Drop Shadow X</label>
+              <input
+                type="range"
+                id="drop-shadowX"
+                min="-20"
+                max="20"
+                step="1"
+                value="0"
+              />
+              <div class="values">
+                <span class="min">-20</span>
+                <span class="current" id="drop-shadowX-value">0</span>
+                <span class="max">20</span>
+              </div>
+            </div>
+            <div class="control">
+              <label for="drop-shadowY">Drop Shadow Y</label>
+              <input
+                type="range"
+                id="drop-shadowY"
+                min="-20"
+                max="20"
+                step="1"
+                value="0"
+              />
+              <div class="values">
+                <span class="min">-20</span>
+                <span class="current" id="drop-shadowY-value">0</span>
+                <span class="max">20</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="kright">
+        <div class="kright-container"></div>
+      </div>
+      <div class="kcontrols">
+        <div id="openKleft">
+          <img src="/assets/icon/openKleft.svg" alt="" />
+        </div>
+        <div id="openKright">
+          <img src="/assets/icon/openKright.svg" alt="" />
+        </div>
+      </div>
+    </div>
+    <script src="/assets/js/popup.js"></script>
+    <script src="/assets/js/kleft.js"></script>
+    <script src="/assets/js/link.js"></script>
+    <script src="/other/1.js"></script>
+  </body>
+</html>

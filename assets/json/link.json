@@ -1,0 +1,59 @@
+{
+  "Home": {
+    "title": "首页",
+    "items": [
+      {
+        "title": "文章",
+        "items": [
+          {
+            "title": "空",
+            "url": "/wiki/1.html",
+            "data": {
+              "time": "XXXX/XX/XX",
+              "modified": "XXXX/XX/XX"
+            }
+          }
+        ]
+      },
+      {
+        "title": "笔记",
+        "items": [
+          {
+            "title": "CSS Filters eretykiwaetrytyk",
+            "url": "/note/1.html",
+            "data": {
+              "time": "2024/08/01",
+              "modified": "2024/08/04"
+            }
+          }
+        ]
+      },
+      {
+        "title": "空间",
+        "items": [
+          {
+            "title": "SVG Polar Chart",
+            "url": "/space/1.html",
+            "data": {
+              "time": "2024/08/12",
+              "modified": "2024/08/13"
+            }
+          }
+        ]
+      },
+      {
+        "title": "其他",
+        "items": [
+          {
+            "title": "CSS Filters Tool",
+            "url": "/other/1.html",
+            "data": {
+              "time": "2024/08/04",
+              "modified": "2024/08/04"
+            }
+          }
+        ]
+      }
+    ]
+  }
+}

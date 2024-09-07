@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/assets/css/index.css" />
+    <link rel="stylesheet" href="/assets/css/kleft.css" />
+    <link rel="stylesheet" href="/assets/css/kright.css" />
+    <title>404 页面未找到</title>
+    <style>
+      .kcenter {
+        width: 100%;
+        height: calc(100vh - 60px);
+        display: flex;
+      }
+      .kcenter .kcenter-error {
+        margin: auto;
+      }
+      .kcenter .kcenter-error div {
+        font-size: 5em;
+        font-weight: bold;
+      }
+      .kcenter .kcenter-error p {
+        margin: 20px 0;
+        font-size: 20px;
+        font-weight: bold;
+      }
+      .kcenter .kcenter-error button {
+        width: 140px;
+        height: 40px;
+        line-height: 42px;
+        background-color: #333;
+        border-radius: 7px;
+        border: none;
+        outline: none;
+        text-align: center;
+        font-family: mono;
+        color: #fff;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="kblog">
+      <div class="kleft">
+        <div class="kleft-container">
+          <div class="author">
+            <div class="author-avatar"></div>
+            <div class="author-name">Kindergarten boss</div>
+            <div class="author-desc">
+              <div class="author-desc-on">要么庸俗，要么孤独</div>
+              <div class="author-desc-off">ilukane.top</div>
+            </div>
+          </div>
+          <div class="nav">
+            <a href="/wiki/1.html">
+              <div class="nav-item" id="wiki">文章</div>
+            </a>
+            <a href="/note/1.html">
+              <div class="nav-item" id="note">笔记</div>
+            </a>
+            <a href="/space/1.html">
+              <div class="nav-item" id="space">空间</div>
+            </a>
+            <a href="/other/1.html">
+              <div class="nav-item" id="other">其他</div>
+            </a>
+          </div>
+          <div class="search">
+            <div class="search-box">
+              <div class="search-icon">
+                <img src="/assets/icon/searchIcon.svg" alt="" />
+              </div>
+              <input
+                id="searchInput"
+                type="text"
+                placeholder="搜索"
+                autocomplete="off"
+              />
+            </div>
+            <ul class="search-results" id="results"></ul>
+          </div>
+        </div>
+      </div>
+      <div class="kcenter">
+        <div class="kcenter-error">
+          <div>404 :(</div>
+          <p>Page not Found</p>
+          <button type="button" id="backButton">BACK</button>
+        </div>
+      </div>
+      <div class="kright">
+        <div class="kright-container">kright</div>
+      </div>
+      <div class="kcontrols">
+        <div id="openKleft">
+          <img src="/assets/icon/openKleft.svg" alt="" />
+        </div>
+        <div id="openKright">
+          <img src="/assets/icon/openKright.svg" alt="" />
+        </div>
+      </div>
+    </div>
+    <script src="/assets/js/popup.js"></script>
+    <script src="/assets/js/kleft.js"></script>
+    <script>
+      document
+        .getElementById("backButton")
+        .addEventListener("click", function () {
+          var referrer = document.referrer;
+          var currentHostname = window.location.hostname;
+
+          if (referrer && new URL(referrer).hostname === currentHostname) {
+            window.location.href = referrer;
+          } else {
+            window.location.href = "index.html";
+          }
+        });
+    </script>
+  </body>
+</html>

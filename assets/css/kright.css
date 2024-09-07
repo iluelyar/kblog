@@ -1,0 +1,32 @@
+.kright-container {
+  background-color: #fff;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+}
+nav ul {
+  background-color: #fff;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  margin-bottom: 20px;
+}
+nav ul li {
+  padding: 4px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+.krcard {
+  width: 100%;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+.krcard .title {
+  width: 100%;
+  font-size: 1em;
+}
+
+.krcard .text {
+  font-size: 0.9em;
+  margin-top: 5px;
+}
