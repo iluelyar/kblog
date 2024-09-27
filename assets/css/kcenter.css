@@ -130,14 +130,22 @@
   gap: 5px;
 }
 .kcenter-main .kcode .codeBoxs > div {
-  width: 100%;
   padding: 10px;
   border-radius: 5px;
   background-color: #fff;
   white-space: pre-wrap;
   word-break: break-all;
   font-family: mono;
+  overflow: hidden;
 }
 .kcenter-main .kcode .codeBoxs > div:focus {
   outline: 1px solid #08f;
+}
+
+.kcenter-main .kcode .codeBoxs .previewBox {
+  width: 100%;
+  border: none;
+  border-radius: 8px;
+  border: 1px dashed #ccc;
+  overflow: hidden;
 }

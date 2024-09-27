@@ -66,6 +66,7 @@ function createSection(data, parent) {
   if (data.html || data.css || data.js) {
     var openBtns = document.createElement("div");
     openBtns.className = "openBtns";
+
     const htmlDiv = document.createElement('div');
     htmlDiv.textContent = 'HTML';
     const cssDiv = document.createElement('div');
@@ -91,66 +92,72 @@ function createSection(data, parent) {
     jsBox.setAttribute('contenteditable', 'true');
 
     htmlDiv.addEventListener("click", function () {
-      htmlBox.style.display =
-        htmlBox.style.display === "none" ? "block" : "none";
+      htmlBox.style.display = htmlBox.style.display === "none" ? "block" : "none";
     });
     cssDiv.addEventListener("click", function () {
-      cssBox.style.display =
-        cssBox.style.display === "none" ? "block" : "none";
+      cssBox.style.display = cssBox.style.display === "none" ? "block" : "none";
     });
     jsDiv.addEventListener("click", function () {
-      jsBox.style.display =
-        jsBox.style.display === "none" ? "block" : "none";
+      jsBox.style.display = jsBox.style.display === "none" ? "block" : "none";
     });
 
-    var previewBox = document.createElement("div");
+    var previewBox = document.createElement("iframe");
     previewBox.className = "previewBox";
+
+
 
     codeBoxs.append(htmlBox, cssBox, jsBox, previewBox);
     section.appendChild(openBtns);
     section.appendChild(codeBoxs);
     section.className = "kcode";
 
-    htmlBox.innerText =
-      data.html.map((line) => " ".repeat(Number(line.indent)) + line.value).join("\n");
-    cssBox.innerText =
-      data.css.map((line) => " ".repeat(Number(line.indent)) + line.value).join("\n");
-    jsBox.innerText =
-      data.js.map((line) => " ".repeat(Number(line.indent)) + line.value).join("\n");
+    htmlBox.innerText = data.html.map((line) => " ".repeat(Number(line.indent)) + line.value).join("\n");
+    cssBox.innerText = data.css.map((line) => " ".repeat(Number(line.indent)) + line.value).join("\n");
+    jsBox.innerText = data.js.map((line) => " ".repeat(Number(line.indent)) + line.value).join("\n");
 
     htmlBox.style.display = data.showHTML ? "block" : "none";
     cssBox.style.display = data.showCSS ? "block" : "none";
     jsBox.style.display = data.showJS ? "block" : "none";
 
     previewDiv.addEventListener("click", function () {
-      const htmlContent = htmlBox.innerText;
-      const cssContent = cssBox.innerText;
-      const jsContent = jsBox.innerText;
-
-      updateContent(htmlContent, cssContent, jsContent, previewBox);
+      updateContent(
+        htmlBox.innerText,
+        cssBox.innerText,
+        jsBox.innerText,
+        previewBox
+      );
     });
-    
-    updateContent(
-      htmlBox.innerText,
-      cssBox.innerText,
-      jsBox.innerText,
-      previewBox
-    );
-  }
 
+    previewBox.onload = function () {
+      updateContent(
+        htmlBox.innerText,
+        cssBox.innerText,
+        jsBox.innerText,
+        previewBox
+      );
+    };
+  }
   parent.appendChild(section);
 }
 
-function updateContent(htmlContent, cssContent, jsContent, container) {
-  container.innerHTML = '';
-  
-  const style = document.createElement('style');
-  style.textContent = `${cssContent}`;
-  document.head.appendChild(style);
-  
-  container.innerHTML = htmlContent;
-  
-  const script = document.createElement('script');
-  script.textContent = jsContent;
-  container.appendChild(script);
+function updateContent(htmlContent, cssContent, jsContent, iframe) {
+  const iframeDoc = iframe.contentDocument || iframe.contentWindow.document;
+  iframeDoc.open();
+  iframeDoc.write(`
+      <html>
+        <head>
+          <style>
+            ${cssContent}
+            ::-webkit-scrollbar {
+              display: none;
+            }
+          </style>
+        </head>
+        <body>
+          ${htmlContent}
+          <script>${jsContent}<\/script>
+        </body>
+      </html>
+    `);
+  iframeDoc.close();
 }
