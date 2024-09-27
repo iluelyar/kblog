@@ -99,7 +99,6 @@
   font-weight: bold;
   font-size: 1.1em;
   transition: all 0.5s;
-  color: #fff;
 }
 .search-results .card:hover,
 .search-results .kcard:hover{
@@ -124,7 +123,7 @@
 .search-results .highlight {
   display: inline-block;
   font-weight: bold;
-  color: red;
+  color: #08f;
 }
 
 .nav {
