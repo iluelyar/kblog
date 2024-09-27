@@ -27,6 +27,10 @@
       document.addEventListener("DOMContentLoaded", function () {
         loadContentFromJSON("/note/1.json");
       });
+      const path = window.location.pathname;
+      if (path.endsWith("/note/1")) {
+        window.location.replace("/note/1.html");
+      }
     </script>
   </head>
   <body>
