@@ -37,7 +37,7 @@
 }
 .header-nav-item:hover,
 .header-nav-turn:hover {
-  background-color: #5555;
+  background-color: #fff5;
 }
 
 .turn-icon {
@@ -57,7 +57,7 @@
   width: 100px;
   max-height: 106px;
   border-radius: 5px;
-  background-color: #5555;
+  background-color: #fff5;
   overflow: auto;
   display: none;
 }
@@ -75,7 +75,8 @@
 }
 .turn-result .turn-item:hover,
 .turn-result .turn-item1:hover {
-  background-color: #fff5;
+  background-color: #fff;
+  color: #000;
 }
 
 .header-data {
@@ -91,7 +92,7 @@
   color: #fff;
 }
 .header-data div:hover {
-  background-color: #5555;
+  background-color: #fff5;
 }
 
 .kcenter-main {
@@ -105,7 +106,8 @@
   text-align: center;
 }
 .kcenter-main .kcode p {
-  margin: 5px 0;
+  margin: 0 0 10px 0;
+  font-weight: bold;
 }
 .kcenter-main .kcode .openBtns {
   margin-bottom: 5px;
@@ -117,7 +119,7 @@
   line-height: 24px;
   padding: 0 5px;
   border-radius: 5px;
-  background-color: #eee;
+  background-color: #fff;
   font-size: 1em;
   cursor: pointer;
 }
@@ -131,16 +133,11 @@
   width: 100%;
   padding: 10px;
   border-radius: 5px;
-  background-color: #eee;
+  background-color: #fff;
   white-space: pre-wrap;
   word-break: break-all;
   font-family: mono;
-  font-size: 12px;
 }
-.kcenter-main .kcode .codeBoxs iframe {
-  width: 100%;
-  border: none;
-  outline: none;
-  border-radius: 5px;
-  background-color: #eee;
+.kcenter-main .kcode .codeBoxs > div:focus {
+  outline: 1px solid #08f;
 }

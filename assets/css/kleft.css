@@ -6,8 +6,8 @@
   grid-template-columns: 50px 1fr;
   grid-template-rows: 30px 20px;
   column-gap: 10px;
-  font-family: comfortaa, songti;
-  color: #333;
+  font-family: cft, songti;
+  color: #fff;
 }
 .author-avatar {
   width: 50px;
@@ -21,7 +21,6 @@
 .author-name {
   font-size: 1.25em;
   line-height: 30px;
-  font-family: cft;
 }
 .author-desc {
   line-height: 20px;
@@ -29,7 +28,6 @@
   position: relative;
   cursor: pointer;
   height: 20px;
-  font-family: cft, songti;
 }
 .author-desc-on {
   transition: transform 0.3s ease, opacity 0.3s ease;
@@ -56,11 +54,10 @@
   display: flex;
   flex-direction: column;
   gap: 10px;
-  font-family: songti;
 }
 .search-box {
   display: flex;
-  border-radius: 10px;
+  border-radius: 8px;
   padding: 0 5px;
   background-color: #fff;
 }
@@ -95,19 +92,24 @@
 .search-results .card,
 .search-results .kcard {
   padding: 15px;
-  background-color: #fff9;
+  background-color: #fff5;
+  -webkit-backdrop-filter: blur(5px);
+  backdrop-filter: blur(5px);
   border-radius: 10px;
   font-weight: bold;
   font-size: 1.1em;
   transition: all 0.5s;
+  color: #fff;
 }
-.search-results .card:hover {
+.search-results .card:hover,
+.search-results .kcard:hover{
   background-color: #fff;
+  color: #000;
 }
 .search-results .kcard {
-  min-height: 77.2px;
+  min-height: 80px;
   text-align: center;
-  line-height: 77.2px;
+  line-height: 80px;
 }
 .search-results .text {
   margin-top: 10px;
@@ -118,12 +120,11 @@
   line-clamp: 2;
   text-overflow: ellipsis;
   overflow: hidden;
-  color: #888;
 }
 .search-results .highlight {
   display: inline-block;
-  color: red;
   font-weight: bold;
+  color: red;
 }
 
 .nav {

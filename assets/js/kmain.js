@@ -1,26 +1,23 @@
+function $(selector) {
+  return document.querySelector(selector);
+}
+
 function loadContentFromJSON(jsonFilePath) {
   fetch(jsonFilePath)
     .then((response) => response.json())
     .then((jsonData) => {
-      var kmain = document.getElementById("kmain");
-      var kright = document.getElementById("kright");
-
-      // 处理顶级title
       if (jsonData.title) {
-        var mainTitle = document.createElement("h1");
+        var mainTitle = document.createElement('h1');
         mainTitle.innerText = jsonData.title;
-        kmain.appendChild(mainTitle);
+        $('#kmain').appendChild(mainTitle);
       }
-
-      // 生成导航
       generateNav(jsonData.sections);
-
-      // 处理每个section
       jsonData.sections.forEach(function (item) {
         createSection(item, kmain);
       });
     });
 }
+
 
 function generateNav(sections) {
   const nav = document.createElement("nav");
@@ -45,7 +42,7 @@ function generateNav(sections) {
   });
 
   nav.appendChild(ul);
-  kright.insertBefore(nav, kright.firstChild);
+  kright.append(nav);
 }
 
 function createSection(data, parent) {
@@ -54,7 +51,7 @@ function createSection(data, parent) {
 
   if (data.name) {
     var name = document.createElement("h2");
-    const id = data.name.replace(/[()]/g, "_"); // 替换括号为下划线
+    const id = data.name.replace(/[()]/g, "_");
     name.id = id;
     name.innerText = data.name;
     section.appendChild(name);
@@ -69,10 +66,16 @@ function createSection(data, parent) {
   if (data.html || data.css || data.js) {
     var openBtns = document.createElement("div");
     openBtns.className = "openBtns";
-    openBtns.innerHTML = `
-      <div>HTML</div>
-      <div>CSS</div>
-      <div>JS</div>`;
+    const htmlDiv = document.createElement('div');
+    htmlDiv.textContent = 'HTML';
+    const cssDiv = document.createElement('div');
+    cssDiv.textContent = 'CSS';
+    const jsDiv = document.createElement('div');
+    jsDiv.textContent = 'JS';
+    const previewDiv = document.createElement('div');
+    previewDiv.textContent = 'Preview';
+
+    openBtns.append(htmlDiv, cssDiv, jsDiv, previewDiv);
 
     var codeBoxs = document.createElement("div");
     codeBoxs.className = "codeBoxs";
@@ -81,26 +84,29 @@ function createSection(data, parent) {
     var cssBox = document.createElement("div");
     var jsBox = document.createElement("div");
     htmlBox.className = "htmlBox";
+    htmlBox.setAttribute('contenteditable', 'true');
     cssBox.className = "cssBox";
+    cssBox.setAttribute('contenteditable', 'true');
     jsBox.className = "jsBox";
+    jsBox.setAttribute('contenteditable', 'true');
 
-    openBtns.children[0].addEventListener("click", function () {
+    htmlDiv.addEventListener("click", function () {
       htmlBox.style.display =
         htmlBox.style.display === "none" ? "block" : "none";
     });
-    openBtns.children[1].addEventListener("click", function () {
+    cssDiv.addEventListener("click", function () {
       cssBox.style.display =
         cssBox.style.display === "none" ? "block" : "none";
     });
-    openBtns.children[2].addEventListener("click", function () {
+    jsDiv.addEventListener("click", function () {
       jsBox.style.display =
         jsBox.style.display === "none" ? "block" : "none";
     });
 
-    var iframeBox = document.createElement("iframe");
-    iframeBox.className = "iframeBox";
+    var previewBox = document.createElement("div");
+    previewBox.className = "previewBox";
 
-    codeBoxs.append(htmlBox, cssBox, jsBox, iframeBox);
+    codeBoxs.append(htmlBox, cssBox, jsBox, previewBox);
     section.appendChild(openBtns);
     section.appendChild(codeBoxs);
     section.className = "kcode";
@@ -116,45 +122,35 @@ function createSection(data, parent) {
     cssBox.style.display = data.showCSS ? "block" : "none";
     jsBox.style.display = data.showJS ? "block" : "none";
 
-    updateIframe(
+    previewDiv.addEventListener("click", function () {
+      const htmlContent = htmlBox.innerText;
+      const cssContent = cssBox.innerText;
+      const jsContent = jsBox.innerText;
+
+      updateContent(htmlContent, cssContent, jsContent, previewBox);
+    });
+    
+    updateContent(
       htmlBox.innerText,
       cssBox.innerText,
       jsBox.innerText,
-      iframeBox
+      previewBox
     );
   }
 
   parent.appendChild(section);
 }
 
-function updateIframe(htmlContent, cssContent, jsContent, iframeBox) {
-  var iframeContent = `<!DOCTYPE html>
-    <html lang="zh">
-      <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <style>
-          ::-webkit-scrollbar {
-            width: 10px;
-            height: 10px;
-          }
-          ::-webkit-scrollbar-track {
-            background: #eee; /* 滚动条轨道颜色 */
-          }
-          ::-webkit-scrollbar-thumb {
-            background: #aaa; /* 滚动条滑块颜色 */
-            border-radius: 5px; /* 滚动条滑块圆角 */
-          }
-          /* 应用传入的自定义样式 */
-          ${cssContent}
-        </style>
-      </head>
-      <body>
-        ${htmlContent}
-        <script>
-          ${jsContent}
-        <\/script>
-      </body>
-    </html>`;
-  iframeBox.srcdoc = iframeContent;
+function updateContent(htmlContent, cssContent, jsContent, container) {
+  container.innerHTML = '';
+  
+  const style = document.createElement('style');
+  style.textContent = `${cssContent}`;
+  document.head.appendChild(style);
+  
+  container.innerHTML = htmlContent;
+  
+  const script = document.createElement('script');
+  script.textContent = jsContent;
+  container.appendChild(script);
 }

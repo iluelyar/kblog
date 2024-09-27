@@ -28,7 +28,7 @@ body {
   min-width: 320px;
   font-size: 14px;
   font-family: mono, songti;
-  color: #333;
+  background-color: #f0f0f0;
   scroll-behavior: smooth;
 }
 /* 移除列表项的默认样式 */
@@ -69,16 +69,10 @@ a {
   padding: 40px 20px;
   transition: all 0.3s ease;
   border-radius: 10px;
-  background: linear-gradient(
-    -135deg,
-    rgba(255, 128, 128, 1) 0 14.3%,
-    rgba(255, 218, 128, 1) 14.3% 28.6%,
-    rgba(255, 255, 128, 1) 28.6% 42.9%,
-    rgba(128, 255, 128, 1) 42.9% 57.2%,
-    rgba(128, 191, 255, 1) 57.2% 71.5%,
-    rgba(128, 128, 255, 1) 71.5% 85.8%,
-    rgb(196, 135, 233) 85.8% 100%
-  );
+  background-image: url(/assets/img/bg.jpg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
   overflow: auto;
   z-index: 1;
 }
@@ -90,7 +84,10 @@ a {
   padding: 40px 20px;
   transition: all 0.3s ease;
   border-radius: 10px;
-  background-color: #fff;
+  background-image: url(/assets/img/bg.jpg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
   overflow: auto;
   z-index: 1;
 }
