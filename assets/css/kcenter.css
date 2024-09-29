@@ -147,5 +147,18 @@
   border: none;
   border-radius: 8px;
   border: 1px dashed #ccc;
+}
+.kcenter-main .kcode .codeBoxs pre,
+.kcenter-main .kcode .codeBoxs code {
+  margin: 0 !important;
+  padding: 0 !important;
+  background: #fff !important;
+  border: none !important;
+  outline: none !important;
+  font: inherit !important;
+  color: inherit !important;
+  white-space: pre-wrap;
+  word-break: break-all;
+  font-family: mono;
   overflow: hidden;
 }

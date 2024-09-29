@@ -20,7 +20,12 @@ function loadContentFromJSON(jsonFilePath) {
 
 
 function generateNav(sections) {
-  const nav = document.createElement("nav");
+  if (!$('#kright')) {
+    const kright = document.createElement("div");
+    kright.className = "kright-container";
+    kright.id = "kright";
+    $('.kright').appendChild(kright);
+  }
   const ul = document.createElement("ul");
 
   sections.forEach((section) => {
@@ -41,8 +46,7 @@ function generateNav(sections) {
     ul.appendChild(li);
   });
 
-  nav.appendChild(ul);
-  kright.append(nav);
+  $('#kright').append(ul);
 }
 
 function createSection(data, parent) {
@@ -104,37 +108,27 @@ function createSection(data, parent) {
     var previewBox = document.createElement("iframe");
     previewBox.className = "previewBox";
 
-
-
     codeBoxs.append(htmlBox, cssBox, jsBox, previewBox);
     section.appendChild(openBtns);
     section.appendChild(codeBoxs);
     section.className = "kcode";
 
-    htmlBox.innerText = data.html.map((line) => " ".repeat(Number(line.indent)) + line.value).join("\n");
-    cssBox.innerText = data.css.map((line) => " ".repeat(Number(line.indent)) + line.value).join("\n");
-    jsBox.innerText = data.js.map((line) => " ".repeat(Number(line.indent)) + line.value).join("\n");
+    htmlBox.innerHTML = `<pre><code class="language-html">${data.html.map(line => " ".repeat(Number(line.indent)) + line.value).join("\n").replace(/</g, '&lt;').replace(/>/g, '&gt;')}</code></pre>`;
+    cssBox.innerHTML = `<pre><code class="language-css">${data.css.map(line => " ".repeat(Number(line.indent)) + line.value).join("\n")}</code></pre>`;
+    jsBox.innerHTML = `<pre><code class="language-javascript">${data.js.map(line => " ".repeat(Number(line.indent)) + line.value).join("\n")}</code></pre>`;
 
     htmlBox.style.display = data.showHTML ? "block" : "none";
     cssBox.style.display = data.showCSS ? "block" : "none";
     jsBox.style.display = data.showJS ? "block" : "none";
 
-    previewDiv.addEventListener("click", function () {
-      updateContent(
-        htmlBox.innerText,
-        cssBox.innerText,
-        jsBox.innerText,
-        previewBox
-      );
+    previewDiv.addEventListener("click", () => {
+      updateContent(htmlBox.innerText, cssBox.innerText, jsBox.innerText, previewBox);
+      Prism.highlightAll();
     });
 
-    previewBox.onload = function () {
-      updateContent(
-        htmlBox.innerText,
-        cssBox.innerText,
-        jsBox.innerText,
-        previewBox
-      );
+    previewBox.onload = () => {
+      updateContent(htmlBox.innerText, cssBox.innerText, jsBox.innerText, previewBox);
+      Prism.highlightAll();
     };
   }
   parent.appendChild(section);
@@ -149,7 +143,7 @@ function updateContent(htmlContent, cssContent, jsContent, iframe) {
           <style>
             ${cssContent}
             ::-webkit-scrollbar {
-              display: none;
+              width: 5px;
             }
           </style>
         </head>
@@ -161,3 +155,8 @@ function updateContent(htmlContent, cssContent, jsContent, iframe) {
     `);
   iframeDoc.close();
 }
+
+// htmlBoxHTML = `<pre><code class="language-html">${data.html.map((line) => " ".repeat(Number(line.indent)) + line.value).join("\n")}</code></pre>`;
+// cssBoxHTML = `<pre><code class="language-css">${data.css.map((line) => " ".repeat(Number(line.indent)) + line.value).join("\n")}</code></pre>`;
+// jsBoxHTML = `<pre><code class="language-javascript">${data.js.map((line) => " ".repeat(Number(line.indent)) + line.value).join("\n")}</code></pre>`;
+// console.log(htmlBoxHTML);
