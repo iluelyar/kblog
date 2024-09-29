@@ -27,11 +27,9 @@
       document.addEventListener("DOMContentLoaded", function () {
         loadContentFromJSON("/note/1.json");
       });
-      const path = window.location.pathname;
-      if (path.endsWith("/note/1")) {
-        window.location.replace("/note/1.html");
-      }
     </script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>    
   </head>
   <body>
     <div class="kblog">
@@ -79,9 +77,7 @@
         <div class="kcenter-header" id="kheader"></div>
         <div class="kcenter-main" id="kmain"></div>
       </div>
-      <div class="kright">
-        <div class="kright-container" id="kright"></div>
-      </div>
+      <div class="kright"></div>
       <div class="kcontrols">
         <div id="openKleft">
           <img src="/assets/icon/openKleft.svg" alt="" />
