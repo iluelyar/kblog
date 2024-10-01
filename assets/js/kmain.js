@@ -18,16 +18,8 @@ function loadContentFromJSON(jsonFilePath) {
     });
 }
 
-
 function generateNav(sections) {
-  if (!$('#kright')) {
-    const kright = document.createElement("div");
-    kright.className = "kright-container";
-    kright.id = "kright";
-    $('.kright').appendChild(kright);
-  }
   const ul = document.createElement("ul");
-
   sections.forEach((section) => {
     const li = document.createElement("li");
     const a = document.createElement("a");

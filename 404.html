@@ -10,7 +10,6 @@
     <style>
       .kcenter {
         width: 100%;
-        height: calc(100vh - 60px);
         display: flex;
       }
       .kcenter .kcenter-error {
@@ -21,21 +20,25 @@
         font-weight: bold;
       }
       .kcenter .kcenter-error p {
-        margin: 20px 0;
-        font-size: 20px;
+        margin: var(--sp-24) 0;
+        font-size: var(--sp-24);
         font-weight: bold;
       }
       .kcenter .kcenter-error button {
         width: 140px;
-        height: 40px;
-        line-height: 42px;
-        background-color: #333;
-        border-radius: 7px;
+        height: var(--sp-40);
+        background-color: var(--color2);
+        border-radius: var(--sp-8);
         border: none;
         outline: none;
         text-align: center;
         font-family: mono;
         color: #fff;
+        line-height: var(--sp-40);
+        transition: all 0.5s ease;
+      }
+      .kcenter .kcenter-error button:hover {
+        background-color: var(--color3);
       }
     </style>
   </head>
@@ -89,7 +92,7 @@
         </div>
       </div>
       <div class="kright">
-        <div class="kright-container">kright</div>
+        <div class="kright-container"></div>
       </div>
       <div class="kcontrols">
         <div id="openKleft">

@@ -1,4 +1,24 @@
-/* reset.css */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --image: url(/assets/img/bg.png);
+  --border: 1px solid #fff5;
+  --outline: 1px solid #fff5;
+  --boxshadow: 0 0 1px #fff5;
+  --padding: 4px 8px;
+  --color1: #000336;
+  --color2: #fff2;
+  --color3: #fff5;
+  --sp-8: 8px;
+  --sp-16: 16px;
+  --sp-24: 24px;
+  --sp-40: 40px;
+}
+
 /* 字体 */
 @font-face {
   font-family: mono;
@@ -13,29 +33,24 @@
   src: url("/assets/font/simsun.ttc");
 }
 
-/* 全局 */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+/* 通用 */
+body {
+  min-width: 320px;
+  background-color: var(--color1);
+  font: 14px mono, songti;
+  color: #fff;
+  scroll-behavior: smooth;
 }
+
+/* 自定义滚动条样式 */
 ::-webkit-scrollbar {
   display: none;
 }
 
-html,
-body {
-  min-width: 320px;
-  font-size: 14px;
-  font-family: mono, songti;
-  background-color: #f0f0f0;
-  scroll-behavior: smooth;
-}
 /* 移除列表项的默认样式 */
 ol,
 ul {
   list-style: none;
-  position: sticky;
 }
 
 /* 设置表格的默认边框样式 */
@@ -52,42 +67,27 @@ a {
 .kblog {
   width: 100%;
   max-width: 1320px;
-  padding: 10px;
+  padding: var(--sp-8);
   margin: auto;
+  position: relative;
   display: grid;
   grid-template-columns: 300px 1fr 300px;
-  gap: 20px;
-  position: relative;
+  gap: var(--sp-16);
 }
 
 /* kleft-container, kright-container */
-.kleft-container {
-  width: 300px;
-  height: calc(100vh - 20px);
-  position: sticky;
-  top: 10px;
-  padding: 40px 20px;
-  transition: all 0.3s ease;
-  border-radius: 10px;
-  background-image: url(/assets/img/bg.jpg);
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  overflow: auto;
-  z-index: 1;
-}
+.kleft-container,
 .kright-container {
   width: 300px;
-  max-height: calc(100vh - 20px);
+  height: calc(100vh - var(--sp-16));
+  padding: var(--sp-40) var(--sp-16);
   position: sticky;
-  top: 10px;
-  padding: 40px 20px;
-  transition: all 0.3s ease;
-  border-radius: 10px;
-  background-image: url(/assets/img/bg.jpg);
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
+  top: var(--sp-8);
+  background-image: var(--image);
+  background-size: contain;
+  outline: var(--outline);
+  border-radius: 16px;
+  transition: all 0.5s ease;
   overflow: auto;
   z-index: 1;
 }
@@ -97,44 +97,44 @@ a {
 @media (max-width: 400px) {
   .kblog {
     grid-template-columns: 0 1fr 0;
-    gap: 0px;
+    gap: 0;
   }
   .kleft-container {
     position: fixed;
-    top: 10px;
+    top: var(--sp-8);
     left: -300px;
   }
   .kright-container {
     position: fixed;
-    top: 10px;
+    top: var(--sp-8);
     right: -300px;
   }
 }
 /* 平板 */
-@media (min-width: 400px) and (max-width: 640px) {
+@media (min-width: 401px) and (max-width: 640px) {
   .kblog {
     grid-template-columns: 0 1fr 0;
     gap: 0;
   }
   .kleft-container {
     position: fixed;
-    top: 10px;
+    top: var(--sp-8);
     left: -300px;
   }
   .kright-container {
     position: fixed;
-    top: 10px;
+    top: var(--sp-8);
     right: -300px;
   }
 }
 /* 桌面 */
-@media (min-width: 640px) and (max-width: 1080px) {
+@media (min-width: 641px) and (max-width: 1080px) {
   .kblog {
     grid-template-columns: 300px 1fr 0px;
   }
   .kright-container {
     position: fixed;
-    top: 10px;
+    top: var(--sp-8);
     right: -300px;
   }
   .kcontrols #openKleft {
@@ -142,7 +142,7 @@ a {
   }
 }
 /* 大桌面 */
-@media (min-width: 1080px) {
+@media (min-width: 1081px) {
   .kcontrols {
     display: none;
   }
@@ -150,29 +150,25 @@ a {
 
 /* 悬浮按钮 */
 .kcontrols {
+  width: var(--sp-40);
   position: fixed;
-  right: 30px;
-  bottom: 30px;
-  width: 40px;
-  background-color: #fff;
-  box-shadow: 0 0 1px #333;
-  border-radius: 5px;
+  right: var(--sp-24);
+  bottom: var(--sp-24);
+  background-color: var(--color1);
+  border: var(--border);
+  border-radius: var(--sp-8);
   overflow: hidden;
   z-index: 999;
 }
 #openKleft,
 #openKright {
-  width: 40px;
-  height: 40px;
+  width: var(--sp-40);
+  height: var(--sp-40);
   display: flex;
 }
 #openKleft img,
 #openKright img {
-  width: 24px;
-  height: 24px;
+  width: var(--sp-24);
+  height: var(--sp-24);
   margin: auto;
-}
-#openKleft:hover,
-#openKright:hover {
-  background-color: #eee;
 }
