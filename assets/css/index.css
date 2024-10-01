@@ -46,6 +46,16 @@ body {
 ::-webkit-scrollbar {
   display: none;
 }
+body::-webkit-scrollbar {
+  width: 4px;
+  display: block;
+}
+body::-webkit-scrollbar-track {
+  background: var(--color2);
+}
+body::-webkit-scrollbar-thumb {
+  background: var(--color3);
+}
 
 /* 移除列表项的默认样式 */
 ol,
