@@ -6,7 +6,7 @@
   background-image: var(--image);
   background-size: contain;
   border-radius: var(--sp-16);
-  outline: var(--outline);
+  border: var(--border);
   display: flex;
   flex-direction: column;
 }
@@ -136,9 +136,8 @@
   outline: 1px solid #fff;
 }
 .kcenter-main .kcode .codeBoxs .previewBox {
-  border-radius: var(--sp-8);
-  outline: 1px dashed #fff;
   border: none;
+  outline: none;
 }
 .kcenter-main .kcode .codeBoxs pre,
 .kcenter-main .kcode .codeBoxs code {
