@@ -101,7 +101,10 @@ a {
   overflow: auto;
   z-index: 1;
 }
-
+.kcenter {
+  height: calc(100vh - var(--sp-16));
+  overflow: auto;
+}
 /* 响应式 */
 /* 移动端 */
 @media (max-width: 400px) {
