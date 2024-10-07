@@ -13,27 +13,32 @@ function loadContentFromJSON(jsonFilePath) {
       }
       generateNav(jsonData.sections);
       jsonData.sections.forEach(function (item) {
-        createSection(item, kmain);
+        createSection(item);
       });
     });
 }
 
 function generateNav(sections) {
   const ul = document.createElement("ul");
+
   sections.forEach((section) => {
     const li = document.createElement("li");
     const a = document.createElement("a");
-    const id = section.name.replace(/[()]/g, "_");
+    const id = section.name.replace(/[()]/g, ""); 
     a.href = `#${id}`;
     a.textContent = section.name;
+
     a.addEventListener("click", function (e) {
       e.preventDefault();
       const target = document.getElementById(id);
-      window.scrollTo({
-        top: target.offsetTop - 10,
-        behavior: "smooth",
-      });
+      if (target) {
+        window.scrollTo({
+          top: target.offsetTop - 10,
+          behavior: "smooth",
+        });
+      }
     });
+    
     li.appendChild(a);
     ul.appendChild(li);
   });
@@ -41,13 +46,16 @@ function generateNav(sections) {
   $('#kright').append(ul);
 }
 
-function createSection(data, parent) {
+
+
+
+function createSection(data) {
   var section = document.createElement("div");
   section.className = "section";
 
   if (data.name) {
     var name = document.createElement("h2");
-    const id = data.name.replace(/[()]/g, "_");
+    const id = data.name.replace(/[()]/g, "");
     name.id = id;
     name.innerText = data.name;
     section.appendChild(name);
@@ -123,7 +131,7 @@ function createSection(data, parent) {
       Prism.highlightAll();
     };
   }
-  parent.appendChild(section);
+  $("#kmain").appendChild(section);
 }
 
 function updateContent(htmlContent, cssContent, jsContent, iframe) {
@@ -147,8 +155,3 @@ function updateContent(htmlContent, cssContent, jsContent, iframe) {
     `);
   iframeDoc.close();
 }
-
-// htmlBoxHTML = `<pre><code class="language-html">${data.html.map((line) => " ".repeat(Number(line.indent)) + line.value).join("\n")}</code></pre>`;
-// cssBoxHTML = `<pre><code class="language-css">${data.css.map((line) => " ".repeat(Number(line.indent)) + line.value).join("\n")}</code></pre>`;
-// jsBoxHTML = `<pre><code class="language-javascript">${data.js.map((line) => " ".repeat(Number(line.indent)) + line.value).join("\n")}</code></pre>`;
-// console.log(htmlBoxHTML);

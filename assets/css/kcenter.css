@@ -125,15 +125,13 @@
   gap: var(--sp-8);
 }
 .kcenter-main .kcode .codeBoxs > div {
+  outline: none;
   border-radius: var(--sp-8);
   background-color: var(--color2);
   white-space: pre-wrap;
   word-break: break-all;
   font-family: mono;
   overflow: hidden;
-}
-.kcenter-main .kcode .codeBoxs > div:focus {
-  outline: 1px solid #fff;
 }
 .kcenter-main .kcode .codeBoxs .previewBox {
   border: none;
