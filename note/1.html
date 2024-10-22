@@ -1,48 +1,30 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- favicon -->
+    <link
+      rel="shortcut icon"
+      href="/assets/img/favicon.png"
+      type="image/x-icon"
+    />
+    <!-- title -->
+    <title>CSS Filters</title>
+    <!-- meta -->
+    <meta name="author" content="Kane" />
+    <meta name="description" content="CSS Filters 为你的网页添加酷炫效果" />
+    <meta name="keywords" content="html,css,js,chart,ilukane,kblog" />
+    <!-- css -->
     <link rel="stylesheet" href="/assets/css/index.css" />
     <link rel="stylesheet" href="/assets/css/kleft.css" />
+    <link rel="stylesheet" href="/assets/css/kcenter.css" />
     <link rel="stylesheet" href="/assets/css/kright.css" />
-    <title>404 页面未找到</title>
-    <style>
-      .kcenter {
-        width: 100%;
-        height: calc(100vh - var(--sp-16));
-        display: flex;
-        overflow: auto;
-      }
-      .kcenter .kcenter-error {
-        margin: auto;
-      }
-      .kcenter .kcenter-error div {
-        font-size: 5em;
-        font-weight: bold;
-      }
-      .kcenter .kcenter-error p {
-        margin: var(--sp-24) 0;
-        font-size: var(--sp-24);
-        font-weight: bold;
-      }
-      .kcenter .kcenter-error button {
-        width: 140px;
-        height: var(--sp-40);
-        background-color: var(--color2);
-        border-radius: var(--sp-8);
-        border: none;
-        outline: none;
-        text-align: center;
-        font-family: mono;
-        color: #fff;
-        line-height: var(--sp-40);
-        transition: all 0.5s ease;
-      }
-      .kcenter .kcenter-error button:hover {
-        background-color: var(--color3);
-      }
-    </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/themes/prism-okaidia.min.css"
+      rel="stylesheet"
+    />
   </head>
   <body>
     <div class="kblog">
@@ -87,14 +69,17 @@
         </div>
       </div>
       <div class="kcenter">
-        <div class="kcenter-error">
-          <div>404 :(</div>
-          <p>Page not Found</p>
-          <button type="button" id="backButton">BACK</button>
+        <div class="kcenter-header" id="kheader"></div>
+        <div class="kcenter-main" id="kmain">
+          <div class="switch">
+            <div>代码部分折行 -- &gt;</div>
+            <input type="checkbox" id="wrapSwitch" />
+            <label class="switch-btn" for="wrapSwitch"></label>
+          </div>
         </div>
       </div>
       <div class="kright">
-        <div class="kright-container"></div>
+        <div class="kright-container" id="kright"></div>
       </div>
       <div class="kcontrols">
         <div id="openKleft">
@@ -107,19 +92,17 @@
     </div>
     <script src="/assets/js/popup.js"></script>
     <script src="/assets/js/kleft.js"></script>
+    <script src="/assets/js/kmain.js"></script>
+    <script src="/assets/js/link.js"></script>
     <script>
-      document
-        .getElementById("backButton")
-        .addEventListener("click", function () {
-          var referrer = document.referrer;
-          var currentHostname = window.location.hostname;
-
-          if (referrer && new URL(referrer).hostname === currentHostname) {
-            window.location.href = referrer;
-          } else {
-            window.location.href = "index.html";
-          }
-        });
+      function headerIndex(index1, index2) {
+        return [1, 0];
+      }
+      loadContentFromJSON("/note/1.json").then(() => {
+        generateTitle();
+        generateNav();
+        kmainData.sections.forEach(createSection);
+      });
     </script>
   </body>
 </html>
