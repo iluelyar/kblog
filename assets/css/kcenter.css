@@ -153,7 +153,7 @@
   background-color: transparent;
   font-family: mono;
 }
-.kcenter-main .kcode .codeBoxs code.wrap{
+.kcenter-main .kcode .codeBoxs code.wrap {
   white-space: pre-wrap;
   word-break: break-all;
 }
@@ -175,7 +175,7 @@
   cursor: pointer;
   width: 50px;
   height: 24px;
-  background-color: #ccc;
+  background-color: var(--color2);
   border-radius: 24px;
   position: relative;
   display: block;
@@ -187,13 +187,11 @@
   height: 20px;
   left: 2px;
   bottom: 2px;
-  background-color: white;
+  background-color: var(--color3);
   border-radius: 50%;
   transition: 0.2s;
 }
-.switch input:checked + label {
-  background-color: #4caf50;
-}
 .switch input:checked + label:before {
   transform: translateX(26px);
+  background-color: #fff;
 }
