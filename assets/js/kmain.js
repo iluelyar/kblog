@@ -267,7 +267,7 @@ function createSection(data) {
     const codeElements = document.querySelectorAll(".codeBoxs code");
 
     $("#wrapSwitch").addEventListener("change", function () {
-        const codeElements = document.querySelectorAll(".kcode code");
+        const codeElements = document.querySelectorAll(".codeBoxs code");
         codeElements.forEach(codeElement => {
             codeElement.classList.toggle("wrap", this.checked);
         });
