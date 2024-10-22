@@ -24,7 +24,7 @@
           { "indent": 2, "value": "height: 100px;" },
           { "indent": 0, "value": "}" },
           { "indent": 0, "value": ".blur {" },
-          { "indent": 2, "value": "filt2144444444444444444444444444444444444444444444444444444444111111111111111er: blur(5px); /* 5像素2411111111111111111111的模糊*/" },
+          { "indent": 2, "value": "filter: blur(5px); /* 5像素的模糊*/" },
           { "indent": 0, "value": "}" }
         ]
       }
