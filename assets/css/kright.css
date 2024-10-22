@@ -1,0 +1,18 @@
+ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sp-8);
+}
+ul li {
+  padding: var(--padding);
+  border-radius: var(--sp-8);
+  background-color: var(--color2);
+  -webkit-backdrop-filter: blur(0px);
+  backdrop-filter: blur(0px);
+  transition: all 0.2s ease;
+}
+ul li:hover {
+  background-color: var(--color3);
+  -webkit-backdrop-filter: blur(1px);
+  backdrop-filter: blur(1px);
+}
