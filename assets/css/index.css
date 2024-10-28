@@ -1,0 +1,190 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --image: url(/assets/img/bg.png);
+  --border: 1px solid #fff5;
+  --outline: 1px solid #fff5;
+  --boxshadow: 0 0 1px #fff5;
+  --padding: 4px 8px;
+  --color1: #000336;
+  --color2: #fff2;
+  --color3: #fff5;
+  --sp-8: 8px;
+  --sp-16: 16px;
+  --sp-24: 24px;
+  --sp-40: 40px;
+}
+
+/* 字体 */
+@font-face {
+  font-family: mono;
+  src: url("/assets/font/JetBrainsMono-Regular.ttf");
+}
+@font-face {
+  font-family: cft;
+  src: url("/assets/font/Comfortaa-Light.ttf");
+}
+@font-face {
+  font-family: songti;
+  src: url("/assets/font/simsun.ttc");
+}
+
+/* 通用 */
+body {
+  min-width: 320px;
+  background-color: var(--color1);
+  font: 14px mono, songti;
+  color: #fff;
+  scroll-behavior: smooth;
+}
+
+/* 自定义滚动条样式 */
+::-webkit-scrollbar {
+  display: none;
+}
+body::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+  display: block;
+}
+body::-webkit-scrollbar-track {
+  border-radius: 10px;
+  background: var(--color2);
+}
+body::-webkit-scrollbar-thumb {
+  background: var(--color3);
+  border-radius: 10px;
+}
+body::-webkit-scrollbar-corner {
+  background-color: #0000;
+}
+
+/* 移除列表项的默认样式 */
+ol,
+ul {
+  list-style: none;
+}
+
+/* 设置表格的默认边框样式 */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* kblog */
+.kblog {
+  width: 100%;
+  max-width: 1320px;
+  padding: var(--sp-8);
+  margin: auto;
+  position: relative;
+  display: grid;
+  grid-template-columns: 300px 1fr 300px;
+  gap: var(--sp-16);
+}
+
+/* kleft-container, kright-container */
+.kleft-container,
+.kright-container {
+  width: 300px;
+  height: calc(100vh - var(--sp-16));
+  padding: var(--sp-40) var(--sp-16);
+  position: sticky;
+  top: var(--sp-8);
+  background-image: var(--image);
+  background-size: contain;
+  border: var(--border);
+  border-radius: 16px;
+  transition: all 0.5s ease;
+  overflow: auto;
+  z-index: 1;
+}
+
+/* 响应式 */
+/* 移动端 */
+@media (max-width: 400px) {
+  .kblog {
+    grid-template-columns: 0 1fr 0;
+    gap: 0;
+  }
+  .kleft-container {
+    position: fixed;
+    top: var(--sp-8);
+    left: -300px;
+  }
+  .kright-container {
+    position: fixed;
+    top: var(--sp-8);
+    right: -300px;
+  }
+}
+/* 平板 */
+@media (min-width: 401px) and (max-width: 640px) {
+  .kblog {
+    grid-template-columns: 0 1fr 0;
+    gap: 0;
+  }
+  .kleft-container {
+    position: fixed;
+    top: var(--sp-8);
+    left: -300px;
+  }
+  .kright-container {
+    position: fixed;
+    top: var(--sp-8);
+    right: -300px;
+  }
+}
+/* 桌面 */
+@media (min-width: 641px) and (max-width: 1080px) {
+  .kblog {
+    grid-template-columns: 300px 1fr 0px;
+  }
+  .kright-container {
+    position: fixed;
+    top: var(--sp-8);
+    right: -300px;
+  }
+  .kcontrols .kcontrols-left {
+    display: none;
+  }
+}
+/* 大桌面 */
+@media (min-width: 1081px) {
+  .kcontrols {
+    display: none;
+  }
+}
+
+/* 悬浮按钮 */
+.kcontrols {
+  width: var(--sp-40);
+  position: fixed;
+  right: var(--sp-24);
+  bottom: var(--sp-24);
+  background-color: var(--color1);
+  border: var(--border);
+  border-radius: var(--sp-8);
+  overflow: hidden;
+  z-index: 999;
+}
+.kcontrols-left,
+.kcontrols-right {
+  width: var(--sp-40);
+  height: var(--sp-40);
+  display: flex;
+}
+.kcontrols-left img,
+.kcontrols-right img {
+  width: var(--sp-24);
+  height: var(--sp-24);
+  margin: auto;
+}

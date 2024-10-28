@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- favicon -->
+    <link
+      rel="shortcut icon"
+      href="/assets/img/favicon.png"
+      type="image/x-icon"
+    />
+    <!-- title -->
+    <title>CSS Filters</title>
+    <!-- meta -->
+    <meta name="author" content="Kane" />
+    <meta name="description" content="CSS Filters 为你的网页添加酷炫效果" />
+    <meta name="keywords" content="html,css,js,chart,ilukane,kblog" />
+    <!-- css -->
+    <link rel="stylesheet" href="/assets/css/index.css" />
+    <link rel="stylesheet" href="/assets/css/kleft.css" />
+    <link rel="stylesheet" href="/assets/css/kcenter.css" />
+    <link rel="stylesheet" href="/assets/css/kright.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/themes/prism-okaidia.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="kblog">
+      <div class="kleft">
+        <div class="kleft-container">
+          <div class="author">
+            <div class="author-avatar"></div>
+            <div class="author-name">Kindergarten boss</div>
+            <div class="author-desc">
+              <div class="author-desc-on">要么庸俗，要么孤独</div>
+              <div class="author-desc-off">ilukane.top</div>
+            </div>
+          </div>
+          <div class="nav">
+            <a href="/notes/1.html">
+              <div class="nav-item">
+                <img src="/assets/icon/noteIcon.svg" alt="" />
+              </div>
+            </a>
+            <a href="/projects/1.html">
+              <div class="nav-item">
+                <img src="/assets/icon/projectIcon.svg" alt="" />
+              </div>
+            </a>
+            <a href="/logs/1.html">
+              <div class="nav-item">
+                <img src="/assets/icon/logIcon.svg" alt="" />
+              </div>
+            </a>
+            <a href="/charts/1.html">
+              <div class="nav-item">
+                <img src="/assets/icon/chartIcon.svg" alt="" />
+              </div>
+            </a>
+            <a href="/tools/1.html">
+              <div class="nav-item">
+                <img src="/assets/icon/toolIcon.svg" alt="" />
+              </div>
+            </a>
+          </div>
+          <div class="search">
+            <div class="search-box">
+              <div class="search-icon">
+                <img src="/assets/icon/searchIcon.svg" alt="" />
+              </div>
+              <input
+                class="search-input"
+                type="text"
+                placeholder="搜索"
+                autocomplete="off"
+              />
+            </div>
+            <ul class="search-results"></ul>
+          </div>
+        </div>
+      </div>
+      <div class="kcenter">
+        <div class="kcenter-header" id="kheader"></div>
+        <div class="kcenter-main" id="kmain"></div>
+      </div>
+      <div class="kright">
+        <div class="kright-container" id="kright"></div>
+      </div>
+      <div class="kcontrols">
+        <div class="kcontrols-left">
+          <img src="/assets/icon/kleftIcon.svg" alt="" />
+        </div>
+        <div class="kcontrols-right">
+          <img src="/assets/icon/krightIcon.svg" alt="" />
+        </div>
+      </div>
+    </div>
+    <script src="/assets/js/index.js"></script>
+    <script src="/assets/js/kleft.js"></script>
+    <script src="/assets/js/khead.js"></script>
+    <script src="/assets/js/kmain.js"></script>
+    <script>
+      function format() {
+        return [0, 0];
+      }
+      loadContentFromJSON("/notes/1.json").then(() => {
+        generateSwitch();
+        generateTitle();
+        generateNav();
+        kcodedata.sections.forEach(createSection);
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,104 @@
+{
+  "home": {
+    "title": "首页",
+    "items": [
+      {
+        "title": "知识笔记",
+        "items": [
+          {
+            "title": "CSS Filters",
+            "url": "/notes/1.html",
+            "data": {
+              "time": "2024/08/01",
+              "modified": "2024/08/04"
+            }
+          },
+          {
+            "title": "1",
+            "url": "/notes/2.html",
+            "data": {
+              "time": "2024/08/01",
+              "modified": "2024/08/04"
+            }
+          },
+          {
+            "title": "2",
+            "url": "/notes/3.html",
+            "data": {
+              "time": "2024/08/01",
+              "modified": "2024/08/04"
+            }
+          },
+          {
+            "title": "3",
+            "url": "/notes/4.html",
+            "data": {
+              "time": "2024/08/01",
+              "modified": "2024/08/04"
+            }
+          },
+          {
+            "title": "4",
+            "url": "/notes/5.html",
+            "data": {
+              "time": "2024/08/01",
+              "modified": "2024/08/04"
+            }
+          }
+        ]
+      },
+      {
+        "title": "作品展示",
+        "items": [
+          {
+            "title": "空",
+            "url": "/projects/1.html",
+            "data": {
+              "time": "XXXX/XX/XX",
+              "modified": "XXXX/XX/XX"
+            }
+          }
+        ]
+      },
+      {
+        "title": "个人日志",
+        "items": [
+          {
+            "title": "空",
+            "url": "/logs/1.html",
+            "data": {
+              "time": "XXXX/XX/XX",
+              "modified": "XXXX/XX/XX"
+            }
+          }
+        ]
+      },
+      {
+        "title": "图表与可视化",
+        "items": [
+          {
+            "title": "空",
+            "url": "/charts/1.html",
+            "data": {
+              "time": "XXXX/XX/XX",
+              "modified": "XXXX/XX/XX"
+            }
+          }
+        ]
+      },
+      {
+        "title": "工具生成",
+        "items": [
+          {
+            "title": "空",
+            "url": "/tools/1.html",
+            "data": {
+              "time": "XXXX/XX/XX",
+              "modified": "XXXX/XX/XX"
+            }
+          }
+        ]
+      }
+    ]
+  }
+}

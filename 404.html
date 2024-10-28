@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- favicon -->
+    <link
+      rel="shortcut icon"
+      href="/assets/img/favicon.png"
+      type="image/x-icon"
+    />
+    <!-- title -->
+    <title>404 页面未找到</title>
+    <!-- meta -->
+    <meta name="author" content="Kane" />
+    <meta name="description" content="CSS Filters 为你的网页添加酷炫效果" />
+    <meta name="keywords" content="html,css,js,chart,ilukane,kblog" />
+    <!-- css -->
+    <link rel="stylesheet" href="/assets/css/index.css" />
+    <link rel="stylesheet" href="/assets/css/kleft.css" />
+    <link rel="stylesheet" href="/assets/css/kright.css" />
+    <style>
+      .kcenter {
+        width: 100%;
+        height: calc(100vh - var(--sp-16));
+        display: flex;
+        overflow: auto;
+      }
+      .kcenter .kcenter-error {
+        margin: auto;
+      }
+      .kcenter .kcenter-error div {
+        font-size: 5em;
+        font-weight: bold;
+      }
+      .kcenter .kcenter-error p {
+        margin: var(--sp-24) 0;
+        font-size: var(--sp-24);
+        font-weight: bold;
+      }
+      .kcenter .kcenter-error button {
+        width: 140px;
+        height: var(--sp-40);
+        background-color: var(--color2);
+        border-radius: var(--sp-8);
+        border: none;
+        outline: none;
+        text-align: center;
+        font-family: mono;
+        color: #fff;
+        line-height: var(--sp-40);
+        transition: all 0.5s ease;
+      }
+      .kcenter .kcenter-error button:hover {
+        background-color: var(--color3);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="kblog">
+      <div class="kleft">
+        <div class="kleft-container">
+          <div class="author">
+            <div class="author-avatar"></div>
+            <div class="author-name">Kindergarten boss</div>
+            <div class="author-desc">
+              <div class="author-desc-on">要么庸俗，要么孤独</div>
+              <div class="author-desc-off">ilukane.top</div>
+            </div>
+          </div>
+          <div class="nav">
+            <a href="/notes/1.html">
+              <div class="nav-item">
+                <img src="/assets/icon/noteIcon.svg" alt="" />
+              </div>
+            </a>
+            <a href="/projects/1.html">
+              <div class="nav-item">
+                <img src="/assets/icon/projectIcon.svg" alt="" />
+              </div>
+            </a>
+            <a href="/logs/1.html">
+              <div class="nav-item">
+                <img src="/assets/icon/logIcon.svg" alt="" />
+              </div>
+            </a>
+            <a href="/charts/1.html">
+              <div class="nav-item">
+                <img src="/assets/icon/chartIcon.svg" alt="" />
+              </div>
+            </a>
+            <a href="/tools/1.html">
+              <div class="nav-item">
+                <img src="/assets/icon/toolIcon.svg" alt="" />
+              </div>
+            </a>
+          </div>
+          <div class="search">
+            <div class="search-box">
+              <div class="search-icon">
+                <img src="/assets/icon/searchIcon.svg" alt="" />
+              </div>
+              <input
+                class="search-input"
+                type="text"
+                placeholder="搜索"
+                autocomplete="off"
+              />
+            </div>
+            <ul class="search-results"></ul>
+          </div>
+        </div>
+      </div>
+      <div class="kcenter">
+        <div class="kcenter-error">
+          <div>404 :(</div>
+          <p>Page not Found</p>
+          <button class="kcenter-btn" type="button">BACK</button>
+        </div>
+      </div>
+      <div class="kright">
+        <div class="kright-container"></div>
+      </div>
+      <div class="kcontrols">
+        <div class="kcontrols-left">
+          <img src="/assets/icon/kleftIcon.svg" alt="" />
+        </div>
+        <div class="kcontrols-right">
+          <img src="/assets/icon/krightIcon.svg" alt="" />
+        </div>
+      </div>
+    </div>
+    <script src="/assets/js/index.js"></script>
+    <script src="/assets/js/kleft.js"></script>
+    <script>
+      $(".kcenter-btn").addEventListener("click", function () {
+        var referrer = document.referrer;
+        var currentHostname = window.location.hostname;
+
+        if (referrer && new URL(referrer).hostname === currentHostname) {
+          window.location.href = referrer;
+        } else {
+          window.location.href = "/";
+        }
+      });
+    </script>
+  </body>
+</html>
