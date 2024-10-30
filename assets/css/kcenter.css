@@ -1,10 +1,8 @@
 .kcenter-header {
-  /* 确定大小 */
   height: 220px;
   position: relative;
   padding: var(--sp-16);
-  background-image: var(--image);
-  background-size: contain;
+  background: var(--bgi) center/contain;
   border-radius: var(--sp-16);
   border: var(--border);
   display: flex;
