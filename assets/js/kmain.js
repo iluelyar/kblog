@@ -125,7 +125,7 @@ function createCodeDivs(data) {
             langBox.setAttribute('data-lang', languageMap[lang] || lang.toUpperCase());
 
             if (lang === 'vue') {
-                lang = 'js'; // 将 lang 设置为 js
+                lang = 'js';
             }
 
             langBox.innerHTML = `<pre><code class="language-${lang}">${codeText.replace(/</g, "&lt;").replace(/>/g, "&gt;")}</code></pre>`;
