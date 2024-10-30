@@ -3,23 +3,25 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- favicon -->
     <link
       rel="shortcut icon"
       href="/assets/img/favicon.png"
       type="image/x-icon"
     />
-    <!-- title -->
     <title>KBlog</title>
-    <!-- meta -->
     <meta name="author" content="Kane" />
-    <meta name="description" content="欢迎来到我的博客" />
-    <meta name="keywords" content="html,css,js,chart,ilukane,kblog,note" />
+    <meta name="description" content="欢迎来到 Kane 的博客" />
+    <meta name="keywords" content="html,css,js,chart,ilukane,kblog" />
     <!-- css -->
     <link rel="stylesheet" href="/assets/css/index.css" />
     <link rel="stylesheet" href="/assets/css/kleft.css" />
-    <link rel="stylesheet" href="/assets/css/kcenter.css" />
+    <link rel="stylesheet" href="/assets/css/a.css" />
     <link rel="stylesheet" href="/assets/css/kright.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/themes/prism-okaidia.min.css"
+      rel="stylesheet"
+    />
   </head>
   <body>
     <div class="kblog">
@@ -76,12 +78,89 @@
           </div>
         </div>
       </div>
-      <div class="kcenter">
-        <div class="kcenter-header" id="kheader"></div>
-        <div class="kcenter-main" id="kmain"></div>
+      <div class="khcenter">
+        <div class="khcenter-slide">
+          <h1 id="slide1">欢迎来到我的博客</h1>
+          <p class="hyc">
+            我是一个热爱前端开发的学习者，这里记录了我的编程旅程与成长。通过这个博客，我希望能与更多人分享我的学习笔记和项目成果，也期待能够和你们交流和进步。
+          </p>
+          <div class="slidebox">
+            <div class="slidebox-icon">
+              <img src="/assets/icon/noteIcon.svg" alt="" />
+            </div>
+            <div class="slidebox-title">学习笔记</div>
+            <p class="slidebox-subtitle">
+              分享我在前端开发和编程中的学习记录，涵盖
+              HTML、CSS、JavaScript、Vue.js 等内容。
+            </p>
+          </div>
+          <div class="codebg"></div>
+        </div>
+        <div class="khcenter-slide">
+          <div class="slidebox" id="slide2">
+            <div class="slidebox-icon">
+              <img src="/assets/icon/projectIcon.svg" alt="" />
+            </div>
+            <div class="slidebox-title">个人项目</div>
+            <p class="slidebox-subtitle">
+              展示我开发的各种项目，从小工具到完整应用。
+            </p>
+          </div>
+        </div>
+        <div class="khcenter-slide">
+          <div class="slidebox" id="slide3">
+            <div class="slidebox-icon">
+              <img src="/assets/icon/logIcon.svg" alt="" />
+            </div>
+            <div class="slidebox-title">个人空间</div>
+            <p class="slidebox-subtitle">
+              记录日常生活中的点滴，偶尔分享我的想法与生活灵感。
+            </p>
+          </div>
+        </div>
+        <div class="khcenter-slide">
+          <div class="slidebox" id="slide4">
+            <div class="slidebox-icon">
+              <img src="/assets/icon/chartIcon.svg" alt="" />
+            </div>
+            <div class="slidebox-title">个人图表 Kchart</div>
+            <p class="slidebox-subtitle">
+              用可视化图表展示数据，直观地展示分析结果和学习过程。
+            </p>
+          </div>
+        </div>
+        <div class="khcenter-slide">
+          <div class="slidebox" id="slide5">
+            <div class="slidebox-icon">
+              <img src="/assets/icon/toolIcon.svg" alt="" />
+            </div>
+            <div class="slidebox-title">个人工具 Ktool</div>
+            <p class="slidebox-subtitle">
+              提供一些方便的小工具，帮助开发者简化工作流程，提高效率。
+            </p>
+          </div>
+        </div>
       </div>
       <div class="kright">
-        <div class="kright-container" id="kright"></div>
+        <div class="kright-container">
+          <ul>
+            <li>
+              <a href="#slide1">学习笔记</a>
+            </li>
+            <li>
+              <a href="#slide2">个人项目</a>
+            </li>
+            <li>
+              <a href="#slide3">个人空间</a>
+            </li>
+            <li>
+              <a href="#slide4">个人图表 Kchart</a>
+            </li>
+            <li>
+              <a href="#slide5">个人工具 Ktool</a>
+            </li>
+          </ul>
+        </div>
       </div>
       <div class="kcontrols">
         <div class="kcontrols-left">
@@ -94,5 +173,55 @@
     </div>
     <script src="/assets/js/index.js"></script>
     <script src="/assets/js/kleft.js"></script>
+    <script>
+      const bgcode = [
+        {
+          indent: "0",
+          value: "const $ = (selector) => document.querySelector(selector);",
+        },
+        {
+          indent: "0",
+          value: "const $$ = (tagname, classname, idname, content) => {",
+        },
+        {
+          indent: "2",
+          value: "const element = document.createElement(tagname);",
+        },
+        { indent: "2", value: "if (classname) element.className = classname;" },
+        { indent: "2", value: "if (idname) element.id = idname;" },
+        { indent: "2", value: "if (content) element.innerText = content;" },
+        { indent: "2", value: "return element;" },
+        { indent: "0", value: "};" },
+      ];
+
+      const codebox = $(".codebg");
+      const output = (line, index) => {
+        const pre = $$("pre");
+        const code = $$("code");
+        code.className = "language-javascript";
+        pre.appendChild(code);
+        pre.style.textIndent = `${line.indent}em`;
+        codebox.appendChild(pre);
+
+        let text = "";
+        const length = line.value.length;
+
+        const addCharacter = (i) => {
+          if (i < length) {
+            text += line.value[i];
+            code.innerText = text;
+            requestAnimationFrame(() => addCharacter(i + 1));
+            Prism.highlightElement(code);
+          } else {
+            if (index < bgcode.length - 1) {
+              setTimeout(() => output(bgcode[index + 1], index + 1), 200);
+            }
+          }
+        };
+
+        addCharacter(0);
+      };
+      output(bgcode[0], 0);
+    </script>
   </body>
 </html>
