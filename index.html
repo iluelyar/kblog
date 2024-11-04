@@ -1,25 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <title>KBlog - Kane 的博客</title>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="欢迎来到 Kane 的博客，分享前端学习笔记和个人随笔。"
+    />
+    <meta name="keywords" content="html,css,js,chart,ilukane,kblog" />
+    <meta name="author" content="Kane" />
+
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="KBlog - Kane 的博客" />
+    <meta
+      property="og:description"
+      content="欢迎来到 Kane 的博客，分享前端学习笔记和个人随笔。"
+    />
+    <meta property="og:image" content="https://ilukane.top/assets/img/tx.jpg" />
+    <meta property="og:url" content="https://ilukane.top" />
+    <meta property="og:site_name" content="KBlog" />
+
+    <!-- Twitter Card Meta Tags -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:title" content="KBlog - Kane 的博客" />
+    <meta
+      property="twitter:description"
+      content="欢迎来到 Kane 的博客，分享前端学习笔记和个人随笔。"
+    />
+    <meta
+      property="twitter:image"
+      content="https://ilukane.top/assets/img/tx.jpg"
+    />
+
+    <!-- Favicon -->
     <link
       rel="shortcut icon"
-      href="/assets/img/favicon.png"
+      href="/assets/img/tx.jpg"
       type="image/x-icon"
     />
-    <title>KBlog</title>
-    <meta name="author" content="Kane" />
-    <meta name="description" content="欢迎来到 Kane 的博客" />
-    <meta name="keywords" content="html,css,js,chart,ilukane,kblog" />
-    <!-- css -->
+
+    <!-- CSS -->
     <link rel="stylesheet" href="/assets/css/index.css" />
     <link rel="stylesheet" href="/index.css" />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
     <link
       href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/themes/prism-okaidia.min.css"
       rel="stylesheet"
     />
+
+    <!-- Prism.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
   </head>
   <body>
     <div class="khblog">
@@ -217,15 +247,15 @@
         showDesktopNotification(
           "欢迎来到我的博客！",
           "QQ:2919512707",
-          "https://ilukane.top/assets/img/tx.png",
+          "https://ilukane.top/assets/img/tx.jpg",
           "https://picsum.photos/1000/645"
         );
       });
-      
+
       $(".openkblog").addEventListener("click", () => {
         window.open("/notes/1.html");
       });
-      
+
       function showDesktopNotification(title, body, icon, image) {
         if (!("Notification" in window)) {
           alert("当前浏览器不支持桌面通知，请手动添加 QQ:2919512707。");
