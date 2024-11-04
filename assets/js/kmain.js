@@ -40,7 +40,7 @@ function generateNav() {
     const li = $$("li");
     const a = $$("a");
     a.href = `#top`;
-    a.textContent = "返回顶部";
+    a.textContent = "#top";
 
     a.addEventListener("click", function (e) {
         e.preventDefault();
