@@ -143,6 +143,12 @@
           </div>
         </div>
       </div>
+      <div class="item line">
+        <div class="item-line"></div>
+      </div>
+      <div class="bottom">
+        <button class="openkblog" type="button">进入博客</button>
+      </div>
     </div>
 
     <script>
@@ -208,20 +214,21 @@
       });
 
       $(".contact-qq").addEventListener("click", () => {
-        window.open(
-          "https://wpa.qq.com/msgrd?v=3&uin=2919512707&site=qq&menu=yes"
-        );
         showDesktopNotification(
-          "欢迎来到我的博客",
-          "如果没有唤起QQ,可添加2919512707",
+          "欢迎来到我的博客！",
+          "QQ:2919512707",
           "https://ilukane.top/assets/img/tx.png",
-          "https://ilukane.top/assets/img/tx.png"
+          "https://picsum.photos/1000/645"
         );
       });
-
+      
+      $(".openkblog").addEventListener("click", () => {
+        window.open("/notes/1.html");
+      });
+      
       function showDesktopNotification(title, body, icon, image) {
         if (!("Notification" in window)) {
-          alert("当前浏览器不支持桌面通知");
+          alert("当前浏览器不支持桌面通知，请手动添加 QQ:2919512707。");
           return;
         }
 
@@ -233,12 +240,14 @@
               image: image,
               requireInteraction: true,
             });
+
             notification.onclick = () => {
-              console.log("点击了通知");
+              window.open(
+                "https://wpa.qq.com/msgrd?v=3&uin=2919512707&site=qq&menu=yes"
+              );
             };
-            notification.onclose = () => {
-              console.log("关闭了通知");
-            };
+          } else if (permission === "denied") {
+            alert("通知权限被拒绝，请手动添加 QQ：2919512707。");
           }
         });
       }
