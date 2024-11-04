@@ -14,9 +14,7 @@
     <meta name="keywords" content="html,css,js,chart,ilukane,kblog" />
     <!-- css -->
     <link rel="stylesheet" href="/assets/css/index.css" />
-    <link rel="stylesheet" href="/assets/css/kleft.css" />
-    <link rel="stylesheet" href="/assets/css/a.css" />
-    <link rel="stylesheet" href="/assets/css/kright.css" />
+    <link rel="stylesheet" href="/index.css" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
     <link
       href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/themes/prism-okaidia.min.css"
@@ -24,9 +22,19 @@
     />
   </head>
   <body>
-    <div class="kblog">
-      <div class="kleft">
-        <div class="kleft-container">
+    <div class="khblog">
+      <div class="top">
+        <h1>欢迎来到我的博客</h1>
+        <p>
+          我是一个热爱前端开发的学习者，这里记录了我的编程旅程与成长。通过这个博客，我希望能与更多人分享我的学习笔记和项目成果，也期待能够和你们交流和进步。
+        </p>
+      </div>
+      <div class="item line">
+        <div class="item-line"></div>
+      </div>
+      <div class="item">
+        <div class="item-line"></div>
+        <div class="item-box">
           <div class="author">
             <div class="author-avatar"></div>
             <div class="author-name">Kindergarten boss</div>
@@ -34,56 +42,24 @@
               <div class="author-desc-on">要么庸俗，要么孤独</div>
               <div class="author-desc-off">ilukane.top</div>
             </div>
-          </div>
-          <div class="nav">
-            <a href="/notes/1.html">
-              <div class="nav-item">
-                <img src="/assets/icon/noteIcon.svg" alt="" />
+            <div class="author-text">前端开发爱好者</div>
+            <div class="author-contact">
+              <div class="contact-github">
+                <img src="/assets/icon/githubIcon.svg" />
               </div>
-            </a>
-            <a href="/projects/1.html">
-              <div class="nav-item">
-                <img src="/assets/icon/projectIcon.svg" alt="" />
+              <div class="contact-qq">
+                <img src="/assets/icon/qqIcon.svg" />
               </div>
-            </a>
-            <a href="/logs/1.html">
-              <div class="nav-item">
-                <img src="/assets/icon/logIcon.svg" alt="" />
-              </div>
-            </a>
-            <a href="/charts/1.html">
-              <div class="nav-item">
-                <img src="/assets/icon/chartIcon.svg" alt="" />
-              </div>
-            </a>
-            <a href="/tools/1.html">
-              <div class="nav-item">
-                <img src="/assets/icon/toolIcon.svg" alt="" />
-              </div>
-            </a>
-          </div>
-          <div class="search">
-            <div class="search-box">
-              <div class="search-icon">
-                <img src="/assets/icon/searchIcon.svg" alt="" />
-              </div>
-              <input
-                class="search-input"
-                type="text"
-                placeholder="搜索"
-                autocomplete="off"
-              />
             </div>
-            <ul class="search-results" id="results"></ul>
           </div>
         </div>
       </div>
-      <div class="khcenter">
-        <div class="khcenter-slide">
-          <h1 id="slide1">欢迎来到我的博客</h1>
-          <p class="hyc">
-            我是一个热爱前端开发的学习者，这里记录了我的编程旅程与成长。通过这个博客，我希望能与更多人分享我的学习笔记和项目成果，也期待能够和你们交流和进步。
-          </p>
+      <div class="item line">
+        <div class="item-line"></div>
+      </div>
+      <div class="item">
+        <div class="item-line"></div>
+        <div class="item-box">
           <div class="slidebox">
             <div class="slidebox-icon">
               <img src="/assets/icon/noteIcon.svg" alt="" />
@@ -93,22 +69,36 @@
               分享我在前端开发和编程中的学习记录，涵盖
               HTML、CSS、JavaScript、Vue.js 等内容。
             </p>
+            <div class="slidebox-code"></div>
           </div>
-          <div class="codebg"></div>
         </div>
-        <div class="khcenter-slide">
-          <div class="slidebox" id="slide2">
-            <div class="slidebox-icon">
-              <img src="/assets/icon/projectIcon.svg" alt="" />
+      </div>
+      <div class="item line">
+        <div class="item-line"></div>
+      </div>
+      <div class="item">
+        <div class="item-line"></div>
+        <div class="item-box">
+          <div class="slide">
+            <div class="slidebox">
+              <div class="slidebox-icon">
+                <img src="/assets/icon/projectIcon.svg" alt="" />
+              </div>
+              <div class="slidebox-title">个人项目</div>
+              <p class="slidebox-subtitle">
+                展示我开发的各种项目，从小工具到完整应用。
+              </p>
             </div>
-            <div class="slidebox-title">个人项目</div>
-            <p class="slidebox-subtitle">
-              展示我开发的各种项目，从小工具到完整应用。
-            </p>
           </div>
         </div>
-        <div class="khcenter-slide">
-          <div class="slidebox" id="slide3">
+      </div>
+      <div class="item line">
+        <div class="item-line"></div>
+      </div>
+      <div class="item">
+        <div class="item-line"></div>
+        <div class="item-box">
+          <div class="slidebox">
             <div class="slidebox-icon">
               <img src="/assets/icon/logIcon.svg" alt="" />
             </div>
@@ -118,8 +108,14 @@
             </p>
           </div>
         </div>
-        <div class="khcenter-slide">
-          <div class="slidebox" id="slide4">
+      </div>
+      <div class="item line">
+        <div class="item-line"></div>
+      </div>
+      <div class="item">
+        <div class="item-line"></div>
+        <div class="item-box">
+          <div class="slidebox">
             <div class="slidebox-icon">
               <img src="/assets/icon/chartIcon.svg" alt="" />
             </div>
@@ -129,8 +125,14 @@
             </p>
           </div>
         </div>
-        <div class="khcenter-slide">
-          <div class="slidebox" id="slide5">
+      </div>
+      <div class="item line">
+        <div class="item-line"></div>
+      </div>
+      <div class="item">
+        <div class="item-line"></div>
+        <div class="item-box">
+          <div class="slidebox">
             <div class="slidebox-icon">
               <img src="/assets/icon/toolIcon.svg" alt="" />
             </div>
@@ -141,40 +143,19 @@
           </div>
         </div>
       </div>
-      <div class="kright">
-        <div class="kright-container">
-          <ul>
-            <li>
-              <a href="#slide1">学习笔记</a>
-            </li>
-            <li>
-              <a href="#slide2">个人项目</a>
-            </li>
-            <li>
-              <a href="#slide3">个人空间</a>
-            </li>
-            <li>
-              <a href="#slide4">个人图表 Kchart</a>
-            </li>
-            <li>
-              <a href="#slide5">个人工具 Ktool</a>
-            </li>
-          </ul>
-        </div>
-      </div>
-      <div class="kcontrols">
-        <div class="kcontrols-left">
-          <img src="/assets/icon/kleftIcon.svg" alt="" />
-        </div>
-        <div class="kcontrols-right">
-          <img src="/assets/icon/krightIcon.svg" alt="" />
-        </div>
-      </div>
     </div>
-    <script src="/assets/js/index.js"></script>
-    <script src="/assets/js/kleft.js"></script>
+
     <script>
-      const bgcode = [
+      const $ = (selector) => document.querySelector(selector);
+      const $$ = (tagname, classname, idname, content) => {
+        const element = document.createElement(tagname);
+        if (classname) element.className = classname;
+        if (idname) element.id = idname;
+        if (content) element.innerText = content;
+        return element;
+      };
+
+      const codenote = [
         {
           indent: "0",
           value: "const $ = (selector) => document.querySelector(selector);",
@@ -194,7 +175,7 @@
         { indent: "0", value: "};" },
       ];
 
-      const codebox = $(".codebg");
+      const codebox = $(".slidebox-code");
       const output = (line, index) => {
         const pre = $$("pre");
         const code = $$("code");
@@ -213,15 +194,54 @@
             requestAnimationFrame(() => addCharacter(i + 1));
             Prism.highlightElement(code);
           } else {
-            if (index < bgcode.length - 1) {
-              setTimeout(() => output(bgcode[index + 1], index + 1), 200);
+            if (index < codenote.length - 1) {
+              setTimeout(() => output(codenote[index + 1], index + 1), 200);
             }
           }
         };
-
         addCharacter(0);
       };
-      output(bgcode[0], 0);
+      output(codenote[0], 0);
+
+      $(".contact-github").addEventListener("click", () => {
+        window.open("https://github.com/iluelyar");
+      });
+
+      $(".contact-qq").addEventListener("click", () => {
+        window.open(
+          "https://wpa.qq.com/msgrd?v=3&uin=2919512707&site=qq&menu=yes"
+        );
+        showDesktopNotification(
+          "欢迎来到我的博客",
+          "如果没有唤起QQ,可添加2919512707",
+          "https://ilukane.top/assets/img/tx.png",
+          "https://ilukane.top/assets/img/tx.png"
+        );
+      });
+
+      function showDesktopNotification(title, body, icon, image) {
+        if (!("Notification" in window)) {
+          alert("当前浏览器不支持桌面通知");
+          return;
+        }
+
+        Notification.requestPermission().then((permission) => {
+          if (permission === "granted") {
+            const notification = new Notification(title, {
+              body: body,
+              icon: icon,
+              image: image,
+              requireInteraction: true,
+            });
+            notification.onclick = () => {
+              console.log("点击了通知");
+            };
+            notification.onclose = () => {
+              console.log("关闭了通知");
+            };
+          }
+        });
+      }
     </script>
   </body>
 </html>
