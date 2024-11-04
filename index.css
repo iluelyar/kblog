@@ -164,10 +164,10 @@
   width: 100px;
   height: var(--sp-40);
   line-height: var(--sp-40);
-  border: var(--border);
+  outline: var(--border);
+  border: none;
   border-radius: var(--sp-40);
   background-color: var(--color2);
-  outline: none;
   color: #fff;
   cursor: pointer;
 }
