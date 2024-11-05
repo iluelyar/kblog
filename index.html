@@ -52,7 +52,7 @@
       <div class="top">
         <h1>欢迎来到我的博客</h1>
         <p>
-          我是一个热爱前端开发的学习者，这里记录了我的编程旅程与成长。通过这个博客，我希望能与更多人分享我的学习笔记和项目成果，也期待能够和你们交流和进步。
+          我是一个热爱前端开发的学习者，这里记录了我的编程旅程与成长。通过这个博客，我希望能与更多人分享我的学习笔记和作品成果，也期待能够和你们交流和进步。
         </p>
       </div>
       <div class="item line">
@@ -93,7 +93,7 @@
             <div class="slidebox-title">学习笔记</div>
             <p class="slidebox-subtitle">
               分享我在前端开发和编程中的学习记录，涵盖
-              HTML、CSS、JavaScript、Vue.js 等内容。
+              HTML、CSS、JavaScript、Vue.js 等内容。（乱写的）
             </p>
             <div class="slidebox-code"></div>
           </div>
@@ -108,12 +108,36 @@
           <div class="slide">
             <div class="slidebox">
               <div class="slidebox-icon">
-                <img src="/assets/icon/projectIcon.svg" alt="" />
+                <img src="/assets/icon/workIcon.svg" alt="" />
               </div>
-              <div class="slidebox-title">个人项目</div>
-              <p class="slidebox-subtitle">
-                展示我开发的各种项目，从小工具到完整应用。
-              </p>
+              <div class="slidebox-title">个人作品</div>
+              <p class="slidebox-subtitle">展示我开发的各种作品。（乱写的）</p>
+              <svg width="180" height="180" viewBox="-100 -100 200 200" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="0" cy="0" r="90" fill="#222551" stroke="#fff" stroke-width="4"/>
+                <g id="ticks"></g>
+                <g font-size="12" fill="#fff">
+                  <text x="0" y="-70" dy="4" text-anchor="middle">12</text>
+                  <text x="70" y="0" dy="4" text-anchor="end">3</text>
+                  <text x="0" y="70" dy="4" text-anchor="middle">6</text>
+                  <text x="-70" y="0" dy="4" text-anchor="start">9</text>
+                </g>
+                <g id="secondHand" >
+                  <line x1="0" y1="10" x2="0" y2="-70" stroke="#fff" stroke-width="1" stroke-linecap="round"/>
+                </g>
+                <g id="minuteHand">
+                  <line x1="0" y1="-10" x2="0" y2="-60" stroke="#fff" stroke-width="4" stroke-linecap="round"/>
+                  <line x1="0" y1="-10" x2="0" y2="-60" stroke="#222551" stroke-width="2" stroke-linecap="round"/>
+                  <line x1="0" y1="0" x2="0" y2="-8" stroke="#fff" stroke-width="1" stroke-linecap="round"/>
+                </g>
+                <g id="hourHand">
+                  <line x1="0" y1="-10" x2="0" y2="-30" stroke="#fff" stroke-width="4" stroke-linecap="round"/>
+                  <line x1="0" y1="-10" x2="0" y2="-30" stroke="#222551" stroke-width="2" stroke-linecap="round"/>
+                  <line x1="0" y1="-32" x2="0" y2="-40" stroke="#fff" stroke-width="1" stroke-linecap="round"/>
+                  <line x1="0" y1="0" x2="0" y2="-8" stroke="#fff" stroke-width="1" stroke-linecap="round"/>
+                </g>
+                <circle cx="0" cy="0" r="2" fill="#fff"/>
+                <circle cx="0" cy="0" r="1" fill="#222551"/>
+              </svg>
             </div>
           </div>
         </div>
@@ -130,7 +154,7 @@
             </div>
             <div class="slidebox-title">个人空间</div>
             <p class="slidebox-subtitle">
-              记录日常生活中的点滴，偶尔分享我的想法与生活灵感。
+              记录日常生活中的点滴，偶尔分享我的想法与生活灵感。（乱写的）
             </p>
           </div>
         </div>
@@ -147,8 +171,14 @@
             </div>
             <div class="slidebox-title">个人图表 Kchart</div>
             <p class="slidebox-subtitle">
-              用可视化图表展示数据，直观地展示分析结果和学习过程。
+              用可视化图表展示数据，直观地展示分析结果和学习过程。（乱写的）
             </p>
+            <svg
+              width="240"
+              class="slidebox-svg"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="-100 -100 200 200"
+            ></svg>
           </div>
         </div>
       </div>
@@ -164,7 +194,7 @@
             </div>
             <div class="slidebox-title">个人工具 Ktool</div>
             <p class="slidebox-subtitle">
-              提供一些方便的小工具，帮助开发者简化工作流程，提高效率。
+              提供一些方便的小工具，帮助开发者简化工作流程，提高效率。（乱写的）
             </p>
           </div>
         </div>
@@ -176,7 +206,24 @@
         <button class="openkblog" type="button">进入博客</button>
       </div>
     </div>
-
+    <script src="/charts/1.js"></script>
+    <script src="/charts/2.js"></script>
+    <script>
+      const config = {
+        target: ".slidebox-svg",
+        R: 60,
+        r: 5,
+        dis: 10,
+        rotate: 0,
+        strokeC: "#222551",
+        strokeWidth: "1",
+        fontSize: "8",
+        values: [60, 60, 80, 40, 50, 70],
+        colors: ["#08f", "#f70", "#9f9", "#f0e", "#e5a", "#f6f"],
+        content: ["HTML", "CSS", "JS", "RECT", "VUE", "JQUERY"],
+      };
+      generatePolar(config);
+    </script>
     <script>
       const $ = (selector) => document.querySelector(selector);
       const $$ = (tagname, classname, idname, content) => {

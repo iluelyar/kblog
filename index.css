@@ -146,6 +146,7 @@
 .slidebox .slidebox-subtitle {
   margin: 4px 0;
   font-size: 0.9em;
+  line-height: 1.5;
 }
 .slidebox .slidebox-code {
   margin: var(--sp-8) 0;
