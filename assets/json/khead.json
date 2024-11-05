@@ -12,38 +12,6 @@
               "time": "2024/08/01",
               "modified": "2024/08/04"
             }
-          },
-          {
-            "title": "1",
-            "url": "/notes/2.html",
-            "data": {
-              "time": "2024/08/01",
-              "modified": "2024/08/04"
-            }
-          },
-          {
-            "title": "2",
-            "url": "/notes/3.html",
-            "data": {
-              "time": "2024/08/01",
-              "modified": "2024/08/04"
-            }
-          },
-          {
-            "title": "3",
-            "url": "/notes/4.html",
-            "data": {
-              "time": "2024/08/01",
-              "modified": "2024/08/04"
-            }
-          },
-          {
-            "title": "4",
-            "url": "/notes/5.html",
-            "data": {
-              "time": "2024/08/01",
-              "modified": "2024/08/04"
-            }
           }
         ]
       },
@@ -52,7 +20,7 @@
         "items": [
           {
             "title": "空",
-            "url": "/projects/1.html",
+            "url": "/works/1.html",
             "data": {
               "time": "XXXX/XX/XX",
               "modified": "XXXX/XX/XX"
@@ -77,11 +45,19 @@
         "title": "图表与可视化",
         "items": [
           {
-            "title": "空",
+            "title": "SVG Polar",
             "url": "/charts/1.html",
             "data": {
-              "time": "XXXX/XX/XX",
-              "modified": "XXXX/XX/XX"
+              "time": "2024/11/05",
+              "modified": "2024/11/05"
+            }
+          },
+          {
+            "title": "SVG Clock",
+            "url": "/charts/2.html",
+            "data": {
+              "time": "2024/11/05",
+              "modified": "2024/11/05"
             }
           }
         ]
