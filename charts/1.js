@@ -1,10 +1,8 @@
 const svgNS = "http://www.w3.org/2000/svg";
 let coordinates = [];
-
 function toPI(degrees) {
   return degrees * (Math.PI / 180);
 }
-
 function coordinate(firstAngle, changeAngle, offsetAngle, R, r, dis) {
   const x1 = Math.cos(toPI(firstAngle)) * (R - r);
   const y1 = Math.sin(toPI(firstAngle)) * (R - r);
@@ -18,7 +16,6 @@ function coordinate(firstAngle, changeAngle, offsetAngle, R, r, dis) {
   const y5 = Math.sin(toPI(firstAngle + changeAngle / 2)) * (R + dis);
   return { x1, y1, x2, y2, x3, y3, x4, y4, x5, y5 };
 }
-
 function generatePolarChart(config) {
   const { target, R, r, dis, rotate, strokeC, strokeWidth, values, colors } =
     config;
@@ -54,7 +51,6 @@ function generatePolarChart(config) {
     firstAngle += changeAngle;
   });
 }
-
 function generatePolarLines(config) {
   const { target, strokeWidth, colors } = config;
   coordinates.forEach(({ x5, y5 }, index) => {
@@ -67,7 +63,6 @@ function generatePolarLines(config) {
     document.querySelector(target).appendChild(path);
   });
 }
-
 function generatePolarText(config) {
   const { target, fontSize, colors, content } = config;
   content.forEach((text, index) => {
@@ -84,7 +79,6 @@ function generatePolarText(config) {
     document.querySelector(target).appendChild(textElem);
   });
 }
-
 function generatePolar(config) {
   generatePolarChart(config);
   generatePolarLines(config);

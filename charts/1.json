@@ -1,0 +1,449 @@
+{
+  "title": "SVG Polar 使用 JavaScript 动态生成 SVG 饼图",
+  "sections": [
+    {
+      "name": "示例",
+      "description": "通过 JavaScript 和 SVG 动态生成极坐标图表，展示数据的极坐标可视化方法。通过自定义配置项，用户可以轻松调整半径、线宽、颜色等参数，实现灵活的数据展示效果",
+      "html": {
+        "show": true,
+        "use": true,
+        "code": [
+          { "indent": "0", "value": "<svg" },
+          { "indent": "2", "value": "width='240'" },
+          {
+            "indent": "2",
+            "value": "class='target'"
+          },
+          {
+            "indent": "2",
+            "value": "xmlns='http://www.w3.org/2000/svg'"
+          },
+          {
+            "indent": "2",
+            "value": "viewBox='-100 -100 200 200'>"
+          },
+          {
+            "indent": "0",
+            "value": "</svg>"
+          },
+          {
+            "indent": "0",
+            "value": "<script src='https://ilukane.top/charts/1.js'></script>"
+          }
+        ]
+      },
+      "js": {
+        "show": true,
+        "use": true,
+        "code": [
+          {
+            "indent": "0",
+            "value": "const config = {"
+          },
+          {
+            "indent": "2",
+            "value": "target: '.target',"
+          },
+          {
+            "indent": "2",
+            "value": "R: 60,"
+          },
+          {
+            "indent": "2",
+            "value": "r: 5,"
+          },
+          {
+            "indent": "2",
+            "value": "dis: 10,"
+          },
+          {
+            "indent": "2",
+            "value": "rotate: 0,"
+          },
+          {
+            "indent": "2",
+            "value": "strokeC: '#222551',"
+          },
+          {
+            "indent": "2",
+            "value": "strokeWidth: '1',"
+          },
+          {
+            "indent": "2",
+            "value": "fontSize: '8',"
+          },
+          {
+            "indent": "2",
+            "value": "values: [60, 60, 80, 40, 50, 70],"
+          },
+          {
+            "indent": "2",
+            "value": "colors: ['#08f', '#f70', '#9f9', '#f0e', '#e5a', '#f6f'],"
+          },
+          {
+            "indent": "2",
+            "value": "content: ['HTML', 'CSS', 'JS', 'RECT', 'VUE', 'JQUERY'],"
+          },
+          {
+            "indent": "0",
+            "value": "};"
+          },
+          {
+            "indent": "0",
+            "value": "generatePolar(config);"
+          }
+        ]
+      }
+    },
+    {
+      "name": "JS 代码",
+      "description":"JS 链接 https://ilukane.top/charts/1.js",
+      "js": {
+        "show": true,
+        "use": false,
+        "code": [
+          {
+            "indent": "0",
+            "value": "const svgNS = 'http://www.w3.org/2000/svg';"
+          },
+          {
+            "indent": "0",
+            "value": "let coordinates = [];"
+          },
+          {
+            "indent": "0",
+            "value": "function toPI(degrees) {"
+          },
+          {
+            "indent": "2",
+            "value": "return degrees * (Math.PI / 180);"
+          },
+          {
+            "indent": "0",
+            "value": "}"
+          },
+          {
+            "indent": "0",
+            "value": "function coordinate(firstAngle, changeAngle, offsetAngle, R, r, dis) {"
+          },
+          {
+            "indent": "2",
+            "value": "const x1 = Math.cos(toPI(firstAngle)) * (R - r);"
+          },
+          {
+            "indent": "2",
+            "value": "const y1 = Math.sin(toPI(firstAngle)) * (R - r);"
+          },
+          {
+            "indent": "2",
+            "value": "const x2 = Math.cos(toPI(firstAngle + offsetAngle)) * R;"
+          },
+          {
+            "indent": "2",
+            "value": "const y2 = Math.sin(toPI(firstAngle + offsetAngle)) * R;"
+          },
+          {
+            "indent": "2",
+            "value": "const x3 = Math.cos(toPI(firstAngle + changeAngle - offsetAngle)) * R;"
+          },
+          {
+            "indent": "2",
+            "value": "const y3 = Math.sin(toPI(firstAngle + changeAngle - offsetAngle)) * R;"
+          },
+          {
+            "indent": "2",
+            "value": "const x4 = Math.cos(toPI(firstAngle + changeAngle)) * (R - r);"
+          },
+          {
+            "indent": "2",
+            "value": "const y4 = Math.sin(toPI(firstAngle + changeAngle)) * (R - r);"
+          },
+          {
+            "indent": "2",
+            "value": "const x5 = Math.cos(toPI(firstAngle + changeAngle / 2)) * (R + dis);"
+          },
+          {
+            "indent": "2",
+            "value": "const y5 = Math.sin(toPI(firstAngle + changeAngle / 2)) * (R + dis);"
+          },
+          {
+            "indent": "2",
+            "value": "return { x1, y1, x2, y2, x3, y3, x4, y4, x5, y5 };"
+          },
+          {
+            "indent": "0",
+            "value": "}"
+          },
+          {
+            "indent": "0",
+            "value": "function generatePolarChart(config) {"
+          },
+          {
+            "indent": "2",
+            "value": "const { target, R, r, dis, rotate, strokeC, strokeWidth, values, colors } = config;"
+          },
+          {
+            "indent": "2",
+            "value": "const path = document.createElementNS(svgNS, 'path');"
+          },
+          {
+            "indent": "2",
+            "value": "path.setAttribute('stroke', strokeC);"
+          },
+          {
+            "indent": "2",
+            "value": "path.setAttribute('stroke-width', strokeWidth);"
+          },
+          {
+            "indent": "2",
+            "value": "const totalValue = values.reduce((sum, val) => sum + val, 0);"
+          },
+          {
+            "indent": "2",
+            "value": "const changeAngles = values.map((val) => (val / totalValue) * 360);"
+          },
+          {
+            "indent": "2",
+            "value": "let firstAngle = rotate;"
+          },
+          {
+            "indent": "2",
+            "value": "const offsetAngle = Math.atan(r / (R - r)) * (180 / Math.PI);"
+          },
+          {
+            "indent": "2",
+            "value": "coordinates = [];"
+          },
+          {
+            "indent": "2",
+            "value": "changeAngles.forEach((changeAngle, index) => {"
+          },
+          {
+            "indent": "4",
+            "value": "const { x1, y1, x2, y2, x3, y3, x4, y4, x5, y5 } = coordinate("
+          },
+          {
+            "indent": "6",
+            "value": "firstAngle,"
+          },
+          {
+            "indent": "6",
+            "value": "changeAngle,"
+          },
+          {
+            "indent": "6",
+            "value": "offsetAngle,"
+          },
+          {
+            "indent": "6",
+            "value": "R,"
+          },
+          {
+            "indent": "6",
+            "value": "r,"
+          },
+          {
+            "indent": "6",
+            "value": "dis"
+          },
+          {
+            "indent": "4",
+            "value": ");"
+          },
+          {
+            "indent": "4",
+            "value": "coordinates.push({ x5, y5 });"
+          },
+          {
+            "indent": "4",
+            "value": "const flag = changeAngle > 180 ? 1 : 0;"
+          },
+          {
+            "indent": "4",
+            "value": "let d = `M0 0 L${x1} ${y1} `;"
+          },
+          {
+            "indent": "4",
+            "value": "d += `A${r} ${r} 0 0 1 ${x2} ${y2} `;"
+          },
+          {
+            "indent": "4",
+            "value": "d += `A${R} ${R} 0 ${flag} 1 ${x3} ${y3} `;"
+          },
+          {
+            "indent": "4",
+            "value": "d += `A${r} ${r} 0 0 1 ${x4} ${y4} Z`;"
+          },
+          {
+            "indent": "4",
+            "value": "const segment = document.createElementNS(svgNS, 'path');"
+          },
+          {
+            "indent": "4",
+            "value": "segment.setAttribute('d', d);"
+          },
+          {
+            "indent": "4",
+            "value": "segment.setAttribute('fill', colors[index]);"
+          },
+          {
+            "indent": "4",
+            "value": "segment.setAttribute('stroke', strokeC);"
+          },
+          {
+            "indent": "4",
+            "value": "segment.setAttribute('stroke-width', strokeWidth);"
+          },
+          {
+            "indent": "4",
+            "value": "document.querySelector(target).appendChild(segment);"
+          },
+          {
+            "indent": "4",
+            "value": "firstAngle += changeAngle;"
+          },
+          {
+            "indent": "2",
+            "value": "});"
+          },
+          {
+            "indent": "0",
+            "value": "}"
+          },
+          {
+            "indent": "0",
+            "value": "function generatePolarLines(config) {"
+          },
+          {
+            "indent": "2",
+            "value": "const { target, strokeWidth, colors } = config;"
+          },
+          {
+            "indent": "2",
+            "value": "coordinates.forEach(({ x5, y5 }, index) => {"
+          },
+          {
+            "indent": "4",
+            "value": "const dx = x5 > 0 ? 20 : -20;"
+          },
+          {
+            "indent": "4",
+            "value": "const path = document.createElementNS(svgNS, 'path');"
+          },
+          {
+            "indent": "4",
+            "value": "path.setAttribute('fill', 'none');"
+          },
+          {
+            "indent": "4",
+            "value": "path.setAttribute('stroke', colors[index]);"
+          },
+          {
+            "indent": "4",
+            "value": "path.setAttribute('stroke-width', strokeWidth);"
+          },
+          {
+            "indent": "4",
+            "value": "path.setAttribute('d', `M${x5 / 1.2} ${y5 / 1.2} L${x5} ${y5} h${dx}`);"
+          },
+          {
+            "indent": "4",
+            "value": "document.querySelector(target).appendChild(path);"
+          },
+          {
+            "indent": "2",
+            "value": "});"
+          },
+          {
+            "indent": "0",
+            "value": "}"
+          },
+          {
+            "indent": "0",
+            "value": "function generatePolarText(config) {"
+          },
+          {
+            "indent": "2",
+            "value": "const { target, fontSize, colors, content } = config;"
+          },
+          {
+            "indent": "2",
+            "value": "content.forEach((text, index) => {"
+          },
+          {
+            "indent": "4",
+            "value": "const { x5, y5 } = coordinates[index];"
+          },
+          {
+            "indent": "4",
+            "value": "const dx = x5 > 0 ? 20 : -20;"
+          },
+          {
+            "indent": "4",
+            "value": "const textElem = document.createElementNS(svgNS, 'text');"
+          },
+          {
+            "indent": "4",
+            "value": "textElem.setAttribute('x', x5 + dx);"
+          },
+          {
+            "indent": "4",
+            "value": "textElem.setAttribute('y', y5);"
+          },
+          {
+            "indent": "4",
+            "value": "textElem.setAttribute('font-size', fontSize);"
+          },
+          {
+            "indent": "4",
+            "value": "textElem.setAttribute('text-anchor', x5 >= 0 ? 'end' : 'start');"
+          },
+          {
+            "indent": "4",
+            "value": "textElem.setAttribute('alignment-baseline', 'after-edge');"
+          },
+          {
+            "indent": "4",
+            "value": "textElem.setAttribute('fill', colors[index]);"
+          },
+          {
+            "indent": "4",
+            "value": "textElem.textContent = text;"
+          },
+          {
+            "indent": "4",
+            "value": "document.querySelector(target).appendChild(textElem);"
+          },
+          {
+            "indent": "2",
+            "value": "});"
+          },
+          {
+            "indent": "0",
+            "value": "}"
+          },
+          {
+            "indent": "0",
+            "value": "function generatePolar(config) {"
+          },
+          {
+            "indent": "2",
+            "value": "generatePolarChart(config);"
+          },
+          {
+            "indent": "2",
+            "value": "generatePolarLines(config);"
+          },
+          {
+            "indent": "2",
+            "value": "generatePolarText(config);"
+          },
+          {
+            "indent": "0",
+            "value": "}"
+          }
+        ]
+      }
+    }
+  ]
+}

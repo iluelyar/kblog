@@ -1,80 +1,30 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link
-      rel="shortcut icon"
-      href="/assets/img/tx.jpg"
-      type="image/x-icon"
-    />
-    <title>404 页面未找到</title>
+    <link rel="shortcut icon" href="/assets/img/tx.jpg" type="image/x-icon" />
+    <title>SVG Clock - Kane 的博客</title>
     <meta name="author" content="Kane" />
     <meta
       name="description"
-      content="欢迎来到 Kane 的博客，您访问的页面未找到。"
-    />
-    <meta name="keywords" content="html,css,js,chart,ilukane,kblog,404" />
-    <!-- Open Graph Meta Tags -->
-    <meta property="og:title" content="404 页面未找到 - KBlog" />
-    <meta
-      property="og:description"
-      content="欢迎来到 Kane 的博客，您访问的页面未找到。"
-    />
-    <meta property="og:image" content="https://ilukane.top/assets/img/tx.jpg" />
-    <meta property="og:url" content="https://ilukane.top/404" />
-    <meta property="og:site_name" content="KBlog" />
-    <!-- Twitter Card Meta Tags -->
-    <meta property="twitter:card" content="summary_large_image" />
-    <meta property="twitter:title" content="404 页面未找到 - KBlog" />
-    <meta
-      property="twitter:description"
-      content="欢迎来到 Kane 的博客，您访问的页面未找到。"
+      content="欢迎来到 Kane 的博客，使用 JavaScript 和 SVG 制作一个动态时钟，展示时、分、秒针的实时旋转效果。通过每秒更新时间，用户可以观察到指针的精确运动，同时 SVG 元素的灵活性使得刻度样式和指针长度可以自由调整，打造个性化的时钟界面"
     />
     <meta
-      property="twitter:image"
-      content="https://ilukane.top/assets/img/tx.jpg"
+      name="keywords"
+      content="html, css, js, chart, ilukane, kblog, svg clock"
     />
-    <!-- CSS -->
+    <!-- CSS 文件 -->
     <link rel="stylesheet" href="/assets/css/index.css" />
     <link rel="stylesheet" href="/assets/css/kleft.css" />
+    <link rel="stylesheet" href="/assets/css/kcenter.css" />
     <link rel="stylesheet" href="/assets/css/kright.css" />
-    <style>
-      .kcenter {
-        width: 100%;
-        height: calc(100vh - var(--sp-16));
-        display: flex;
-        overflow: auto;
-      }
-      .kcenter .kcenter-error {
-        margin: auto;
-      }
-      .kcenter .kcenter-error div {
-        font-size: 5em;
-        font-weight: bold;
-      }
-      .kcenter .kcenter-error p {
-        margin: var(--sp-24) 0;
-        font-size: var(--sp-24);
-        font-weight: bold;
-      }
-      .kcenter .kcenter-error button {
-        width: 140px;
-        height: var(--sp-40);
-        background-color: var(--color2);
-        border-radius: var(--sp-8);
-        border: none;
-        outline: none;
-        text-align: center;
-        font-family: mono;
-        color: #fff;
-        line-height: var(--sp-40);
-        transition: all 0.5s ease;
-      }
-      .kcenter .kcenter-error button:hover {
-        background-color: var(--color3);
-      }
-    </style>
+    <!-- Prism.js 用于代码高亮 -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/themes/prism-okaidia.min.css"
+      rel="stylesheet"
+    />
   </head>
   <body>
     <div class="kblog">
@@ -132,14 +82,11 @@
         </div>
       </div>
       <div class="kcenter">
-        <div class="kcenter-error">
-          <div>404 :(</div>
-          <p>Page not Found</p>
-          <button class="kcenter-btn" type="button">BACK</button>
-        </div>
+        <div class="kcenter-header" id="kheader"></div>
+        <div class="kcenter-main" id="kmain"></div>
       </div>
       <div class="kright">
-        <div class="kright-container"></div>
+        <div class="kright-container" id="kright"></div>
       </div>
       <div class="kcontrols">
         <div class="kcontrols-left">
@@ -152,16 +99,17 @@
     </div>
     <script src="/assets/js/index.js"></script>
     <script src="/assets/js/kleft.js"></script>
+    <script src="/assets/js/khead.js"></script>
+    <script src="/assets/js/kmain.js"></script>
     <script>
-      $(".kcenter-btn").addEventListener("click", function () {
-        var referrer = document.referrer;
-        var currentHostname = window.location.hostname;
-
-        if (referrer && new URL(referrer).hostname === currentHostname) {
-          window.location.href = referrer;
-        } else {
-          window.location.href = "/";
-        }
+      function format() {
+        return [3, 1];
+      }
+      loadContentFromJSON("/charts/2.json").then(() => {
+        generateSwitch();
+        generateTitle();
+        generateNav();
+        kcodedata.sections.forEach(createSection);
       });
     </script>
   </body>
