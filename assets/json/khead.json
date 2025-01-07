@@ -1,0 +1,80 @@
+{
+  "home": {
+    "title": "首页",
+    "items": [
+      {
+        "title": "知识笔记",
+        "items": [
+          {
+            "title": "CSS Filters",
+            "url": "/notes/1.html",
+            "data": {
+              "time": "2024/08/01",
+              "modified": "2024/08/04"
+            }
+          }
+        ]
+      },
+      {
+        "title": "作品展示",
+        "items": [
+          {
+            "title": "空",
+            "url": "/works/1.html",
+            "data": {
+              "time": "XXXX/XX/XX",
+              "modified": "XXXX/XX/XX"
+            }
+          }
+        ]
+      },
+      {
+        "title": "个人空间",
+        "items": [
+          {
+            "title": "空",
+            "url": "/logs/1.html",
+            "data": {
+              "time": "XXXX/XX/XX",
+              "modified": "XXXX/XX/XX"
+            }
+          }
+        ]
+      },
+      {
+        "title": "图表与可视化",
+        "items": [
+          {
+            "title": "SVG Polar",
+            "url": "/charts/1.html",
+            "data": {
+              "time": "2024/11/05",
+              "modified": "2024/11/05"
+            }
+          },
+          {
+            "title": "SVG Clock",
+            "url": "/charts/2.html",
+            "data": {
+              "time": "2024/11/05",
+              "modified": "2024/11/05"
+            }
+          }
+        ]
+      },
+      {
+        "title": "工具",
+        "items": [
+          {
+            "title": "空",
+            "url": "/tools/1.html",
+            "data": {
+              "time": "XXXX/XX/XX",
+              "modified": "XXXX/XX/XX"
+            }
+          }
+        ]
+      }
+    ]
+  }
+}

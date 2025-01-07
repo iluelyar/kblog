@@ -3,37 +3,34 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link
-      rel="shortcut icon"
-      href="/assets/img/tx.jpg"
-      type="image/x-icon"
-    />
-    <title>404 页面未找到</title>
+
+    <meta name="description" content="404 - 在寂世庭的深处迷路了。" />
+    <meta name="keywords" content="html,css,js,svg,404" />
     <meta name="author" content="Kane" />
-    <meta
-      name="description"
-      content="欢迎来到 Kane 的博客，您访问的页面未找到。"
-    />
-    <meta name="keywords" content="html,css,js,chart,ilukane,kblog,404" />
     <!-- Open Graph Meta Tags -->
-    <meta property="og:title" content="404 页面未找到 - KBlog" />
+    <meta property="og:title" content="404 - 在寂世庭的深处迷路了" />
+    <meta property="og:description" content="404 - 在寂世庭的深处迷路了" />
     <meta
-      property="og:description"
-      content="欢迎来到 Kane 的博客，您访问的页面未找到。"
+      property="og:image"
+      content="https://elyar.我爱你/assets/img/avatar.jpg"
     />
-    <meta property="og:image" content="https://ilukane.top/assets/img/tx.jpg" />
-    <meta property="og:url" content="https://ilukane.top/404" />
-    <meta property="og:site_name" content="KBlog" />
+    <meta property="og:url" content="https://elyar.我爱你/404" />
+    <meta property="og:site_name" content="寂世庭" />
     <!-- Twitter Card Meta Tags -->
     <meta property="twitter:card" content="summary_large_image" />
-    <meta property="twitter:title" content="404 页面未找到 - KBlog" />
-    <meta
-      property="twitter:description"
-      content="欢迎来到 Kane 的博客，您访问的页面未找到。"
-    />
+    <meta property="twitter:title" content="404 - 在寂世庭的深处迷路了" />
+    <meta property="twitter:description" content="404 - 在寂世庭的深处迷路了" />
     <meta
       property="twitter:image"
-      content="https://ilukane.top/assets/img/tx.jpg"
+      content="https://elyar.我爱你/assets/img/avatar.jpg"
+    />
+    <!-- Title -->
+    <title>404 - 在寂世庭的深处迷路了</title>
+    <!-- Favicon -->
+    <link
+      rel="shortcut icon"
+      href="/assets/img/favicon.png"
+      type="image/x-icon"
     />
     <!-- CSS -->
     <link rel="stylesheet" href="/assets/css/index.css" />
@@ -47,18 +44,19 @@
         overflow: auto;
       }
       .kcenter .kcenter-error {
+        width: 340px;
         margin: auto;
       }
-      .kcenter .kcenter-error div {
-        font-size: 5em;
+      .kcenter .kcenter-error-404 {
+        font-size: 2em;
         font-weight: bold;
       }
-      .kcenter .kcenter-error p {
+      .kcenter .kcenter-error-text {
         margin: var(--sp-24) 0;
-        font-size: var(--sp-24);
+        font-size: var(--sp-16);
         font-weight: bold;
       }
-      .kcenter .kcenter-error button {
+      .kcenter .kcenter-error-btn {
         width: 140px;
         height: var(--sp-40);
         background-color: var(--color2);
@@ -66,12 +64,11 @@
         border: none;
         outline: none;
         text-align: center;
-        font-family: mono;
         color: #fff;
         line-height: var(--sp-40);
         transition: all 0.5s ease;
       }
-      .kcenter .kcenter-error button:hover {
+      .kcenter .kcenter-error-btn:hover {
         background-color: var(--color3);
       }
     </style>
@@ -85,7 +82,7 @@
             <div class="author-name">Kindergarten boss</div>
             <div class="author-desc">
               <div class="author-desc-on">要么庸俗，要么孤独</div>
-              <div class="author-desc-off">ilukane.top</div>
+              <div class="author-desc-off">寂世庭</div>
             </div>
           </div>
           <div class="nav">
@@ -133,9 +130,11 @@
       </div>
       <div class="kcenter">
         <div class="kcenter-error">
-          <div>404 :(</div>
-          <p>Page not Found</p>
-          <button class="kcenter-btn" type="button">BACK</button>
+          <div class="kcenter-error-404">404 - 在寂世庭的深处迷路了</div>
+          <div class="kcenter-error-text">
+            于此寂世庭，幽静深远，时有未可及之地。汝误入一隅，寻不得其踪，或此地已化虚无，杳然难觅。
+          </div>
+          <div class="kcenter-error-btn">归寻旧路</div>
         </div>
       </div>
       <div class="kright">
@@ -153,7 +152,7 @@
     <script src="/assets/js/index.js"></script>
     <script src="/assets/js/kleft.js"></script>
     <script>
-      $(".kcenter-btn").addEventListener("click", function () {
+      $(".kcenter-error-btn").addEventListener("click", function () {
         var referrer = document.referrer;
         var currentHostname = window.location.hostname;
 

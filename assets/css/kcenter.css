@@ -1,0 +1,196 @@
+.kcenter-header {
+  height: 220px;
+  position: relative;
+  padding: var(--sp-16);
+  background: var(--bgi) center/contain;
+  border-radius: var(--sp-16);
+  border: var(--border);
+  display: flex;
+  flex-direction: column;
+}
+
+/* header */
+.header-nav {
+  display: flex;
+  gap: 1px;
+}
+.header-nav-item {
+  max-width: 120px;
+  padding: var(--padding);
+  border-radius: var(--sp-8);
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+.header-nav-turn {
+  border-radius: var(--sp-8);
+  position: relative;
+  transition: all 0.5s ease;
+}
+.header-nav-item:hover,
+.header-nav-turn:hover {
+  background-color: var(--color2);
+}
+
+.turn-icon {
+  width: calc(var(--sp-24) + 2px);
+  height: calc(var(--sp-24) + 2px);
+  display: flex;
+}
+.turn-icon img {
+  width: var(--sp-16);
+  height: var(--sp-16);
+  margin: auto;
+}
+.turn-result {
+  width: 100px;
+  max-height: 104px;
+  padding: calc(var(--sp-8) / 2) 0;
+  position: absolute;
+  top: calc(var(--sp-24) + 4px);
+  border-radius: var(--sp-8);
+  background-color: var(--color2);
+  overflow: auto;
+  display: none;
+}
+.turn-result .turn-item,
+.turn-result .turn-item1 {
+  position: relative;
+  height: var(--sp-24);
+  padding: 0 var(--sp-8);
+  font-size: 0.85em;
+  line-height: var(--sp-24);
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  transition: all 0.5s ease;
+}
+.turn-result .turn-item:hover,
+.turn-result .turn-item1:hover {
+  background-color: var(--color3);
+  -webkit-backdrop-filter: blur(1px);
+  backdrop-filter: blur(1px);
+}
+
+.header-data {
+  margin-top: auto;
+}
+.header-data div {
+  padding: var(--padding);
+  border-radius: var(--sp-8);
+  display: inline-block;
+}
+.header-data div:hover {
+  background-color: var(--color2);
+}
+
+.kcenter-main {
+  width: 100%;
+  margin-top: var(--sp-24);
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-16);
+}
+.kcenter-main h1 {
+  text-align: center;
+}
+.kcenter-main .kcode p {
+  margin: var(--sp-8) 0;
+  font-weight: bold;
+}
+.kcenter-main .kcode .openBtns {
+  margin-bottom: var(--sp-8);
+  display: flex;
+  gap: var(--sp-8);
+}
+.kcenter-main .kcode .openBtns div {
+  padding: var(--padding);
+  border-radius: var(--sp-8);
+  background-color: var(--color2);
+  -webkit-backdrop-filter: blur(0px);
+  backdrop-filter: blur(0px);
+  transition: all 0.5s ease;
+  cursor: pointer;
+}
+.kcenter-main .kcode .openBtns div:hover {
+  background-color: var(--color3);
+  -webkit-backdrop-filter: blur(1px);
+  backdrop-filter: blur(1px);
+}
+.kcenter-main .kcode .codeBoxs {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--sp-8);
+}
+
+.kcenter-main .kcode .codeBoxs > div {
+  position: relative;
+  background-color: var(--color2);
+  border-radius: var(--sp-8);
+  outline: none;
+  overflow: auto;
+}
+.kcenter-main .kcode .codeBoxs > div::after {
+  content: attr(data-lang);
+  padding: var(--padding);
+  position: absolute;
+  top: 0;
+  right: 0;
+  color: #fff;
+  font-size: 12px;
+  z-index: 1;
+}
+.kcenter-main .kcode .codeBoxs .previewBox {
+  width: 100%;
+  border: none;
+  outline: none;
+}
+.kcenter-main .kcode .codeBoxs pre,
+.kcenter-main .kcode .codeBoxs code {
+  border: none;
+  outline: none;
+  background-color: transparent;
+  font-family: mono;
+}
+.kcenter-main .kcode .codeBoxs code.wrap {
+  white-space: pre-wrap;
+  word-break: break-all;
+}
+
+.kcenter-main .switch {
+  width: 100%;
+  height: 24px;
+  line-height: 24px;
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+}
+.kcenter-main .switch input {
+  width: 0;
+  height: 0;
+  opacity: 0;
+}
+.kcenter-main .switch label {
+  cursor: pointer;
+  width: 50px;
+  height: 24px;
+  background-color: var(--color2);
+  border-radius: 24px;
+  position: relative;
+  display: block;
+}
+.kcenter-main .switch label:before {
+  content: "";
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  left: 4px;
+  bottom: 4px;
+  background-color: var(--color3);
+  border-radius: 50%;
+  transition: 0.2s;
+}
+.kcenter-main .switch input:checked + label:before {
+  transform: translateX(26px);
+  background-color: #fff;
+}

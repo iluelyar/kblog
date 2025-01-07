@@ -1,0 +1,273 @@
+{
+  "title": "SVG Clock 使用 JavaScript 动态生成 SVG 时钟",
+  "sections": [
+    {
+      "name": "示例",
+      "description": "通过 JavaScript 和 SVG 制作一个动态时钟，展示时、分、秒针的实时旋转效果。通过每秒更新时间，用户可以观察到指针的精确运动，同时 SVG 元素的灵活性使得刻度样式和指针长度可以自由调整，打造个性化的时钟界面",
+      "html": {
+        "show": true,
+        "use": true,
+        "code": [
+          {
+            "indent": "0",
+            "value": "<svg width='180' height='180' viewBox='-100 -100 200 200' xmlns='http://www.w3.org/2000/svg'>"
+          },
+          {
+            "indent": "2",
+            "value": "<circle cx='0' cy='0' r='90' fill='#222551' stroke='#fff' stroke-width='4'/>"
+          },
+          {
+            "indent": "2",
+            "value": "<g id='ticks'></g>"
+          },
+          {
+            "indent": "2",
+            "value": "<g font-size='12' fill='#fff'>"
+          },
+          {
+            "indent": "4",
+            "value": "<text x='0' y='-70' dy='4' text-anchor='middle'>12</text>"
+          },
+          {
+            "indent": "4",
+            "value": "<text x='70' y='0' dy='4' text-anchor='end'>3</text>"
+          },
+          {
+            "indent": "4",
+            "value": "<text x='0' y='70' dy='4' text-anchor='middle'>6</text>"
+          },
+          {
+            "indent": "4",
+            "value": "<text x='-70' y='0' dy='4' text-anchor='start'>9</text>"
+          },
+          {
+            "indent": "2",
+            "value": "</g>"
+          },
+          {
+            "indent": "2",
+            "value": "<g id='secondHand' >"
+          },
+          {
+            "indent": "4",
+            "value": "<line x1='0' y1='10' x2='0' y2='-70' stroke='#fff' stroke-width='1' stroke-linecap='round'/>"
+          },
+          {
+            "indent": "2",
+            "value": "</g>"
+          },
+          {
+            "indent": "2",
+            "value": "<g id='minuteHand'>"
+          },
+          {
+            "indent": "4",
+            "value": "<line x1='0' y1='-10' x2='0' y2='-60' stroke='#fff' stroke-width='4' stroke-linecap='round'/>"
+          },
+          {
+            "indent": "4",
+            "value": "<line x1='0' y1='-10' x2='0' y2='-60' stroke='#222551' stroke-width='2' stroke-linecap='round'/>"
+          },
+          {
+            "indent": "4",
+            "value": "<line x1='0' y1='0' x2='0' y2='-8' stroke='#fff' stroke-width='1' stroke-linecap='round'/>"
+          },
+          {
+            "indent": "2",
+            "value": "</g>"
+          },
+          {
+            "indent": "2",
+            "value": "<g id='hourHand'>"
+          },
+          {
+            "indent": "4",
+            "value": "<line x1='0' y1='-10' x2='0' y2='-30' stroke='#fff' stroke-width='4' stroke-linecap='round'/>"
+          },
+          {
+            "indent": "4",
+            "value": "<line x1='0' y1='-10' x2='0' y2='-30' stroke='#222551' stroke-width='2' stroke-linecap='round'/>"
+          },
+          {
+            "indent": "4",
+            "value": "<line x1='0' y1='-32' x2='0' y2='-40' stroke='#fff' stroke-width='1' stroke-linecap='round'/>"
+          },
+          {
+            "indent": "4",
+            "value": "<line x1='0' y1='0' x2='0' y2='-8' stroke='#fff' stroke-width='1' stroke-linecap='round'/>"
+          },
+          {
+            "indent": "2",
+            "value": "</g>"
+          },
+          {
+            "indent": "2",
+            "value": "<circle cx='0' cy='0' r='2' fill='#fff'/>"
+          },
+          {
+            "indent": "2",
+            "value": "<circle cx='0' cy='0' r='1' fill='#222551'/>"
+          },
+          {
+            "indent": "0",
+            "value": "</svg>"
+          }
+        ]
+      },
+      "js": {
+        "show": true,
+        "use": true,
+        "code": [
+          {
+            "indent": "0",
+            "value": "const hourHand = document.getElementById('hourHand');"
+          },
+          {
+            "indent": "0",
+            "value": "const minuteHand = document.getElementById('minuteHand');"
+          },
+          {
+            "indent": "0",
+            "value": "const secondHand = document.getElementById('secondHand');"
+          },
+          {
+            "indent": "0",
+            "value": "function updateClock() {"
+          },
+          {
+            "indent": "2",
+            "value": "const now = new Date();"
+          },
+          {
+            "indent": "2",
+            "value": "const hours = now.getHours();"
+          },
+          {
+            "indent": "2",
+            "value": "const minutes = now.getMinutes();"
+          },
+          {
+            "indent": "2",
+            "value": "const seconds = now.getSeconds();"
+          },
+          {
+            "indent": "2",
+            "value": "// 计算角度"
+          },
+          {
+            "indent": "2",
+            "value": "const hourAngle = (hours % 12) * 30 + minutes * 0.5;"
+          },
+          {
+            "indent": "2",
+            "value": "const minuteAngle = minutes * 6;"
+          },
+          {
+            "indent": "2",
+            "value": "const secondAngle = seconds * 6;"
+          },
+          {
+            "indent": "2",
+            "value": "// 旋转指针"
+          },
+          {
+            "indent": "2",
+            "value": "hourHand.setAttribute('transform', `rotate(${hourAngle})`);"
+          },
+          {
+            "indent": "2",
+            "value": "minuteHand.setAttribute('transform', `rotate(${minuteAngle})`);"
+          },
+          {
+            "indent": "2",
+            "value": "secondHand.setAttribute('transform', `rotate(${secondAngle})`);"
+          },
+          {
+            "indent": "0",
+            "value": "}"
+          },
+          {
+            "indent": "0",
+            "value": "setInterval(updateClock, 1000);"
+          },
+          {
+            "indent": "0",
+            "value": "updateClock();"
+          },
+          {
+            "indent": "0",
+            "value": "const svgNS = 'http://www.w3.org/2000/svg';"
+          },
+          {
+            "indent": "0",
+            "value": "const ticks = document.getElementById('ticks');"
+          },
+          {
+            "indent": "0",
+            "value": "for (let index = 0; index < 360; index += 6) {"
+          },
+          {
+            "indent": "2",
+            "value": "const angle = index * (Math.PI / 180);"
+          },
+          {
+            "indent": "2",
+            "value": "const x1 = Math.sin(angle) * 85;"
+          },
+          {
+            "indent": "2",
+            "value": "const y1 = Math.cos(angle) * 85;"
+          },
+          {
+            "indent": "2",
+            "value": "const x2 = Math.sin(angle) * (index % 30 === 0 ? 78 : 80);"
+          },
+          {
+            "indent": "2",
+            "value": "const y2 = Math.cos(angle) * (index % 30 === 0 ? 78 : 80);"
+          },
+          {
+            "indent": "2",
+            "value": "const line = document.createElementNS(svgNS, 'line');"
+          },
+          {
+            "indent": "2",
+            "value": "line.setAttribute('x1', x1.toFixed(4));"
+          },
+          {
+            "indent": "2",
+            "value": "line.setAttribute('y1', y1.toFixed(4));"
+          },
+          {
+            "indent": "2",
+            "value": "line.setAttribute('x2', x2.toFixed(4));"
+          },
+          {
+            "indent": "2",
+            "value": "line.setAttribute('y2', y2.toFixed(4));"
+          },
+          {
+            "indent": "2",
+            "value": "line.setAttribute('stroke', index % 30 === 0 ? '#fff' : '#aaa');"
+          },
+          {
+            "indent": "2",
+            "value": "line.setAttribute('stroke-linecap', 'round');"
+          },
+          {
+            "indent": "2",
+            "value": "line.setAttribute('stroke-width', index % 30 === 0 ? 2 : 1);"
+          },
+          {
+            "indent": "2",
+            "value": "ticks.appendChild(line);"
+          },
+          {
+            "indent": "0",
+            "value": "}"
+          }
+        ]
+      }
+    }
+  ]
+}
